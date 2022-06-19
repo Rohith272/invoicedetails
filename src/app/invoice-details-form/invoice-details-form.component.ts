@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+
+export interface Element {
+  productname: string;
+  warrenty: number;
+  quantity: number;
+  rate: number;
+  amount: number;
+}
 
 interface DirectSns {
   value: string;
@@ -17,6 +26,9 @@ interface Region{
 })
 export class InvoiceDetailsFormComponent implements OnInit {
 
+  displayedColumns: string[] = ['productname', 'warrenty', 'quantity', 'rate','amount'];
+  dataSource = new MatTableDataSource();
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -35,4 +47,9 @@ export class InvoiceDetailsFormComponent implements OnInit {
     {value: 'West', viewValue: 'West'},
   ];
 
+  data: Element[] =[
+    {productname:'criticool',warrenty:4,quantity:3,rate:200,amount:600},
+    {productname:'Billicare',warrenty:4,quantity:3,rate:200,amount:600},
+    {productname:'OBM',warrenty:4,quantity:3,rate:200,amount:600}
+  ]
 }
