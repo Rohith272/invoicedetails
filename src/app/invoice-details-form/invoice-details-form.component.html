@@ -1,0 +1,91 @@
+<div class="head">
+    <h2>Invoice details</h2>
+</div>
+    
+<mat-card class="card">
+    <mat-form-field appearance="fill">
+        <mat-label>Invoice Number</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Invoice Date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+        <mat-label>Quarter</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Modality</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Sub-Modality</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Segment</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Direct/SNS</mat-label>
+      <mat-select name="DirectSns">
+        <mat-option *ngFor="let DirectSns of DirectSNS" [value]="DirectSns.value">
+          {{DirectSns.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Customer Name</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>State</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>District</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Circle</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Cluster</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Region</mat-label>
+        <mat-select name="Region">
+            <mat-option *ngFor="let Region of RegionSel" [value]="Region.value">
+              {{Region.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Sales Person</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Employee ID</mat-label>
+        <input matInput>
+    </mat-form-field>
+</mat-card>

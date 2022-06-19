@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 
 
-interface DirectSns {
-  value: string;
-  viewValue: string;
-}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,9 +11,5 @@ export class AppComponent {
   title = 'invoicedetails';
 
 
-  DirectSNS: DirectSns[] = [
-    {value: 'Direct', viewValue: 'Direct'},
-    {value: 'SNS', viewValue: 'SNS'},
-
-  ];
+  
 }

@@ -10,10 +10,12 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InvoiceDetailsFormComponent } from './invoice-details-form/invoice-details-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InvoiceDetailsFormComponent
   ],
   imports: [
     BrowserModule,
