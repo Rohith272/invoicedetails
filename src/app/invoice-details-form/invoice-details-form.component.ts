@@ -58,15 +58,24 @@ export class InvoiceDetailsFormComponent implements OnInit {
   data: Element[] =[
     {productname:'',warrenty:'',quantity:'',rate:'',amount:''},
   ]
-  displayedColumns: string[] = ['productname', 'warrenty', 'quantity','amount'];
+  displayedColumns: string[] = ['productname', 'warrenty', 'quantity','amount','add','delete'];
   dataSource = new MatTableDataSource(this.data);
   addRow() {
    const newRow: Element = {
       productname:'',warrenty:'',quantity:'',rate:'',amount:'',
     };
-    this.dataSource.data = [newRow, ...this.dataSource.data];
+    //this.dataSource.data = [newRow, ...this.dataSource.data];
+    this.data.push(newRow)
+    this.updateDataSource();
+    //this.dataSource.data=this.data
   }
-  deleteRow(index: any){
-    this.data.splice(index, 1);
+  deleteRow(index: number){
+    this.data.splice(index,1);
+    //this.dataSource.data=this.data
+    this.updateDataSource();
+  }
+
+  updateDataSource(){
+    this.dataSource.data=this.data;
   }
 }
