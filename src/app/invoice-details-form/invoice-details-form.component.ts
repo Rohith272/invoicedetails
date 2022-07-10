@@ -30,11 +30,6 @@ interface Product{
 })
 export class InvoiceDetailsFormComponent implements OnInit {
 
-<<<<<<< HEAD
-=======
-  displayedColumns: string[] = ['productname', 'warrenty', 'quantity','rate','amount'];
- 
->>>>>>> 1734c0f3de3d3af389a43607be929531bdaae48d
   
   constructor() { }
 
@@ -60,7 +55,6 @@ export class InvoiceDetailsFormComponent implements OnInit {
 
   ]
 
-<<<<<<< HEAD
   data: Element[] =[
     {productname:'',warrenty:'',quantity:'',rate:'',amount:''},
   ]
@@ -75,12 +69,4 @@ export class InvoiceDetailsFormComponent implements OnInit {
   deleteRow(index: any){
     this.data.splice(index, 1);
   }
-=======
-   data: Element[] =[
-    {productname:'criticool',warrenty:4,quantity:3,rate:200,amount:600},
-    {productname:'Billicare',warrenty:4,quantity:3,rate:200,amount:600},
-    {productname:'OBM',warrenty:4,quantity:3,rate:200,amount:600}
-  ];
-  dataSource = new MatTableDataSource(this.data);
->>>>>>> 1734c0f3de3d3af389a43607be929531bdaae48d
 }

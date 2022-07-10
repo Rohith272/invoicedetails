@@ -93,64 +93,45 @@
 
 
 <mat-card class="table">
-<<<<<<< HEAD
-  <button mat-button color="primary" (click)="addRow()">Add Row</button>
+  <button mat-raised-button color="primary" class="btn" (click)="addRow()">Add Row</button>
+  <button mat-raised-button color="primary" class="btn">Delete</button>
   
-=======
->>>>>>> 1734c0f3de3d3af389a43607be929531bdaae48d
   <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="productname">
-			<mat-header-cell *matHeaderCellDef> productname </mat-header-cell>
+			<mat-header-cell *matHeaderCellDef class="tablehead"> Product Name </mat-header-cell>
 			<mat-cell *matCellDef="let element">
 				<mat-form-field floatLabel="never">
 					<mat-label>Product</mat-label>
-        <mat-select name="Product">
+          <mat-select name="Product">
             <mat-option *ngFor="let Product of productName" [value]="Product.value">
               {{Product.viewValue}}
             </mat-option>
-        </mat-select>
+          </mat-select>
 				</mat-form-field>
 			</mat-cell>
 		</ng-container>
     <ng-container matColumnDef="warrenty">
-			<mat-header-cell *matHeaderCellDef> warrenty </mat-header-cell>
+			<mat-header-cell *matHeaderCellDef class="tablehead"> Warrenty </mat-header-cell>
 			<mat-cell *matCellDef="let element">
 				<mat-form-field floatLabel="never">
-<<<<<<< HEAD
-					<input matInput placeholder="warrenty" [value]="element.warrenty" [(ngModel)]="element.warrenty">
-=======
-					<input matInput placeholder="warrenty " [value]="element.warrenty" [(ngModel)]="element.warrenty">
->>>>>>> 1734c0f3de3d3af389a43607be929531bdaae48d
+					<input matInput placeholder="Warrenty" [value]="element.warrenty" [(ngModel)]="element.warrenty">
 				</mat-form-field>
 			</mat-cell>
 		</ng-container>
     <ng-container matColumnDef="quantity">
-			<mat-header-cell *matHeaderCellDef> quantity </mat-header-cell>
+			<mat-header-cell *matHeaderCellDef class="tablehead"> Quantity </mat-header-cell>
 			<mat-cell *matCellDef="let element">
 				<mat-form-field floatLabel="never">
-<<<<<<< HEAD
-					<input matInput placeholder="quantity" [value]="element.quantity" [(ngModel)]="element.quantity">
-=======
-					<input matInput placeholder=" quantity" [value]="element.quantity" [(ngModel)]="element.quantity">
-				</mat-form-field>
-			</mat-cell>
-		</ng-container>
-
-    <ng-container matColumnDef="rate">
-			<mat-header-cell *matHeaderCellDef> rate </mat-header-cell>
-			<mat-cell *matCellDef="let element">
-				<mat-form-field floatLabel="never">
-					<input matInput placeholder="rate" [value]="element.rate" [(ngModel)]="element.rate">
->>>>>>> 1734c0f3de3d3af389a43607be929531bdaae48d
+					<input matInput placeholder="Quantity" [value]="element.quantity" [(ngModel)]="element.quantity">
 				</mat-form-field>
 			</mat-cell>
 		</ng-container>
    
     <ng-container matColumnDef="amount">
-			<mat-header-cell *matHeaderCellDef>amount</mat-header-cell>
+			<mat-header-cell *matHeaderCellDef class="tablehead">Amount</mat-header-cell>
 			<mat-cell *matCellDef="let element">
 				<mat-form-field floatLabel="never">
-					<input matInput placeholder="amount" [value]="element.amount" [(ngModel)]="element.amount">
+					<input matInput placeholder="Amount" [value]="element.amount" [(ngModel)]="element.amount">
 				</mat-form-field>
 			</mat-cell>
 		</ng-container>
@@ -158,6 +139,7 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
+  <button mat-raised-button color="primary">Submit</button>
 </mat-card>
   
 
