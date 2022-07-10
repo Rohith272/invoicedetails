@@ -5,6 +5,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
@@ -29,7 +32,10 @@ import { InvoiceDetailsFormComponent } from './invoice-details-form/invoice-deta
     MatDatepickerModule,
     MatNativeDateModule,
     MatTableModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule,
+    MatIconModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

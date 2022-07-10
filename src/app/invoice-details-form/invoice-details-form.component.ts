@@ -3,10 +3,10 @@ import { MatTableDataSource } from '@angular/material/table';
 
 export interface Element {
   productname: string;
-  warrenty: number;
-  quantity: number;
-  rate: number;
-  amount: number;
+  warrenty: string;
+  quantity: string;
+  rate: string;
+  amount: string;
 }
 
 interface DirectSns {
@@ -18,6 +18,10 @@ interface Region{
   value: string;
   viewValue: string;
 }
+interface Product{
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-invoice-details-form',
@@ -26,8 +30,6 @@ interface Region{
 })
 export class InvoiceDetailsFormComponent implements OnInit {
 
-  displayedColumns: string[] = ['productname', 'warrenty', 'quantity', 'rate','amount'];
-  dataSource = new MatTableDataSource();
   
   constructor() { }
 
@@ -46,10 +48,25 @@ export class InvoiceDetailsFormComponent implements OnInit {
     {value: 'East', viewValue:'East'},
     {value: 'West', viewValue: 'West'},
   ];
+  productName:Product[]=[
+    {value: 'Criticool', viewValue: 'Criticool'},
+    {value: 'Billicare', viewValue: 'Billicare'},
+    {value: 'OBM', viewValue: 'OBM'},
+
+  ]
 
   data: Element[] =[
-    {productname:'criticool',warrenty:4,quantity:3,rate:200,amount:600},
-    {productname:'Billicare',warrenty:4,quantity:3,rate:200,amount:600},
-    {productname:'OBM',warrenty:4,quantity:3,rate:200,amount:600}
+    {productname:'',warrenty:'',quantity:'',rate:'',amount:''},
   ]
+  displayedColumns: string[] = ['productname', 'warrenty', 'quantity','amount'];
+  dataSource = new MatTableDataSource(this.data);
+  addRow() {
+   const newRow: Element = {
+      productname:'',warrenty:'',quantity:'',rate:'',amount:'',
+    };
+    this.dataSource.data = [newRow, ...this.dataSource.data];
+  }
+  deleteRow(index: any){
+    this.data.splice(index, 1);
+  }
 }
