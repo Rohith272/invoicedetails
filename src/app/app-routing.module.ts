@@ -4,6 +4,8 @@ import { InvoiceDetailsFormComponent } from './invoice-details-form/invoice-deta
 import { InvoiceListingComponent } from './invoice-listing/invoice-listing.component';
 
 const routes: Routes = [
+  {path:'invoicelisting',component:InvoiceListingComponent },
+  {path:'invoicedetails',component:InvoiceDetailsFormComponent}
 ];
 
 @NgModule({

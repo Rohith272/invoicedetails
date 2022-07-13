@@ -26,4 +26,7 @@ export class InvoiceListingComponent implements OnInit {
   ]
   displayedColumns: string[] = ['Invoice', 'InvoiceDate', 'TotalAmount','EmployeeId'];
   dataSource = new MatTableDataSource(this.data);
+  addInvoice(){
+    this.router.navigate(['/invoicedetails'])
+  }
  }

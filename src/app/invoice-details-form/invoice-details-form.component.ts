@@ -79,4 +79,8 @@ export class InvoiceDetailsFormComponent implements OnInit {
   updateDataSource(){
     this.dataSource.data=this.data;
   }
+  Save(){
+    
+      this.router.navigate(['/invoicelisting'])
+  }
 }

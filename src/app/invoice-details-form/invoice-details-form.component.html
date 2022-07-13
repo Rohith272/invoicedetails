@@ -1,3 +1,4 @@
+
 <div class="head">
     <h2>Invoice details</h2>
 </div>
@@ -156,7 +157,7 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
-  <button mat-raised-button color="primary">Submit</button>
+  <button mat-raised-button color="primary" (click)="Save()">Submit</button>
 </mat-card>
   
 
