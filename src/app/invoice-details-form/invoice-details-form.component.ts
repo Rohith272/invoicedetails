@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 export interface Element {
   productname: string;
@@ -31,7 +32,7 @@ interface Product{
 export class InvoiceDetailsFormComponent implements OnInit {
 
   
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
