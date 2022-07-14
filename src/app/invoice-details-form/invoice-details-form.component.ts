@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import {ServiceService} from '../services/service.service'
 import { Router } from '@angular/router';
 
-export interface Element {
-  productname: string;
-  warrenty: string;
-  quantity: string;
-  rate: string;
-  amount: string;
+export class ProductDetails {
+  productname: string = "";
+  warrenty: number = 0;
+  quantity: number = 0;
+  rate: number = 0;
+  amount: number = 0;
 }
 
+export class ClientDetails{
+  invoice_number : any = "";
+  purchase_date : any = "";
+  quarter: any = "";
+  modality: any= "";
+  sub_modality: any="";
+  segment: any= "";
+  direction_sns: any= "";
+  costumer_name: any = "";
+  state : any = "";
+}
 interface DirectSns {
   value: string;
   viewValue: string;
@@ -31,10 +43,11 @@ interface Product{
 })
 export class InvoiceDetailsFormComponent implements OnInit {
 
-  
-  constructor(private router:Router) { }
+  @Input() client:any = new ClientDetails();
+  constructor(private router:Router, private service:ServiceService) { }
 
   ngOnInit(): void {
+
   }
 
   DirectSNS: DirectSns[] = [
@@ -56,31 +69,33 @@ export class InvoiceDetailsFormComponent implements OnInit {
 
   ]
 
-  data: Element[] =[
-    {productname:'',warrenty:'',quantity:'',rate:'',amount:''},
+  data: ProductDetails[] =[
+    {productname:"",warrenty:0,quantity:0,rate:0,amount:0},
   ]
   displayedColumns: string[] = ['productname', 'warrenty', 'quantity','amount','add','delete'];
   dataSource = new MatTableDataSource(this.data);
+
+  //for adding row
   addRow() {
-   const newRow: Element = {
-      productname:'',warrenty:'',quantity:'',rate:'',amount:'',
-    };
-    //this.dataSource.data = [newRow, ...this.dataSource.data];
-    this.data.push(newRow)
-    this.updateDataSource();
-    //this.dataSource.data=this.data
-  }
-  deleteRow(index: number){
-    this.data.splice(index,1);
-    //this.dataSource.data=this.data
+    this.data.push(new ProductDetails())
     this.updateDataSource();
   }
 
+  //for deleting an existing row
+  deleteRow(index: number){
+    this.data.splice(index,1);
+    this.updateDataSource();
+  }
+
+  //for updating the datasource
   updateDataSource(){
     this.dataSource.data=this.data;
+    //console.log(this.data)
   }
+
+  //for saving the data
   Save(){
-    
       this.router.navigate(['/invoicelisting'])
+      this.service.SaveData(this.data);
   }
 }

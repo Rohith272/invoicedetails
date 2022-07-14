@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import {ServiceService} from '../services/service.service'
 
-export interface Element{
-  Invoice:string;
-  InvoiceDate:string;
-  TotalAmount:string;
-  EmployeeId:string;
+export class ProductDetails {
+  productname: string = "";
+  warrenty: number = 0;
+  quantity: number = 0;
+  rate: number = 0;
+  amount: number = 0;
 }
+
 
 @Component({
   selector: 'app-invoice-listing',
@@ -16,17 +19,24 @@ export interface Element{
 })
 export class InvoiceListingComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  ProductList =[{'productname':"", 'warrenty':"",'quantity':"",'amount':""}];
+  constructor(private router:Router, private service:ServiceService) {
+    this.ProductList = this.service.GetData();
+    this.dataSource = new MatTableDataSource<any>(this.ProductList);
 
+   }
+    
   ngOnInit(): void {
   }
 
-  data: Element[] =[
-    {Invoice:'',InvoiceDate:'',TotalAmount:'',EmployeeId:''},
+  data: ProductDetails[] =[
+    {productname:"",warrenty:0,quantity:0,rate:0,amount:0},
   ]
-  displayedColumns: string[] = ['Invoice', 'InvoiceDate', 'TotalAmount','EmployeeId'];
-  dataSource = new MatTableDataSource(this.data);
+
+  public dataSource =new MatTableDataSource<any>(this.ProductList);
+  displayedColumns: string[] = ['productname', 'warrenty', 'quantity','amount'];
   addInvoice(){
     this.router.navigate(['/invoicedetails'])
+    console.log(this.ProductList)
   }
  }

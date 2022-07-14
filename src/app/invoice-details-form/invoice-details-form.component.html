@@ -6,12 +6,12 @@
 <mat-card class="card">
     <mat-form-field appearance="fill">
         <mat-label>Invoice Number</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]="client.invoice_number">
     </mat-form-field>
 
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Invoice Date</mat-label>
-        <input matInput [matDatepicker]="picker">
+        <input matInput [matDatepicker]="picker" [(ngModel)]="client.purchase_date">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
@@ -19,27 +19,27 @@
     
     <mat-form-field appearance="fill">
         <mat-label>Quarter</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]="client.quarter">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
         <mat-label>Modality</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]="client.modality">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Sub-Modality</mat-label>
-      <input matInput>
+      <input matInput [(ngModel)]="client.sub_modality">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Segment</mat-label>
-      <input matInput>
+      <input matInput [(ngModel)]="client.segment">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Direct/SNS</mat-label>
-      <mat-select name="DirectSns">
+      <mat-select name="DirectSns" [(ngModel)]="client.direction_sns">
         <mat-option *ngFor="let DirectSns of DirectSNS" [value]="DirectSns.value">
           {{DirectSns.viewValue}}
         </mat-option>
@@ -48,12 +48,12 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Customer Name</mat-label>
-      <input matInput>
+      <input matInput [(ngModel)]="client.customer_name">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
         <mat-label>State</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]="client.state">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -94,17 +94,14 @@
 
 
 <mat-card class="table">
-  <!--<button mat-raised-button color="primary" class="btn" (click)="addRow()">Add Row</button>-->
-  <!--<button mat-raised-button color="primary" class="btn" (click)="deleteRow">Delete</button>-->
-  
   <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
     <ng-container matColumnDef="productname">
 			<mat-header-cell *matHeaderCellDef class="tablehead"> Product Name </mat-header-cell>
 			<mat-cell *matCellDef="let element">
 				<mat-form-field floatLabel="never">
 					<mat-label>Product</mat-label>
-          <mat-select name="Product">
-            <mat-option *ngFor="let Product of productName" [value]="Product.value">
+          <mat-select name="Product" [(ngModel)]="element.productname">
+            <mat-option *ngFor="let Product of productName" [value]="element.productname" >
               {{Product.viewValue}}
             </mat-option>
           </mat-select>
@@ -157,7 +154,6 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
-  <button mat-raised-button color="primary" (click)="Save()">Submit</button>
+  <button mat-raised-button color="primary" routerLink="invoicelisting" (click)="Save()">Submit</button>
 </mat-card>
   
-
