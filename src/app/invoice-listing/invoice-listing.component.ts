@@ -19,10 +19,10 @@ export class ProductDetails {
 })
 export class InvoiceListingComponent implements OnInit {
 
-  ProductList =[{'productname':"", 'warrenty':"",'quantity':"",'amount':""}];
+  productList =[{'productname':"", 'warrenty':"",'quantity':"",'amount':""}];
   constructor(private router:Router, private service:ServiceService) {
-    this.ProductList = this.service.GetData();
-    this.dataSource = new MatTableDataSource<any>(this.ProductList);
+    this.productList = this.service.getData();
+    this.dataSource = new MatTableDataSource<any>(this.productList);
 
    }
     
@@ -33,10 +33,10 @@ export class InvoiceListingComponent implements OnInit {
     {productname:"",warrenty:0,quantity:0,rate:0,amount:0},
   ]
 
-  public dataSource =new MatTableDataSource<any>(this.ProductList);
+  public dataSource =new MatTableDataSource<any>(this.productList);
   displayedColumns: string[] = ['productname', 'warrenty', 'quantity','amount'];
   addInvoice(){
     this.router.navigate(['/invoicedetails'])
-    console.log(this.ProductList)
+    console.log(this.productList)
   }
  }

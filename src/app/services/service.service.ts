@@ -6,15 +6,15 @@ import { Injectable } from '@angular/core';
 export class ServiceService {
 
   constructor() { }
-  ProductList =[{'productname':"", 'warrenty':"",'quantity':"",'amount':""}];
+  productList =[{'productname':"", 'warrenty':"",'quantity':"",'amount':""}];
 
-  SaveData(input:any){
-    this.ProductList.push(input);
-    //console.log(this.ProductList)
+  saveData(input:any){
+    this.productList.push(input);
+    //console.log(this.productList)
   }
 
-  GetData(){
-    return this.ProductList;
+  getData(){
+    return this.productList;
   }
 
 }

@@ -39,8 +39,8 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Direct/SNS</mat-label>
-      <mat-select name="DirectSns" [(ngModel)]="client.direction_sns">
-        <mat-option *ngFor="let DirectSns of DirectSNS" [value]="DirectSns.value">
+      <mat-select name="directSns" [(ngModel)]="client.direction_sns">
+        <mat-option *ngFor="let DirectSns of directSNS" [value]="DirectSns.value">
           {{DirectSns.viewValue}}
         </mat-option>
       </mat-select>
@@ -74,7 +74,7 @@
     <mat-form-field appearance="fill">
         <mat-label>Region</mat-label>
         <mat-select name="Region">
-            <mat-option *ngFor="let Region of RegionSel" [value]="Region.value">
+            <mat-option *ngFor="let Region of regionSel" [value]="Region.value">
               {{Region.viewValue}}
             </mat-option>
         </mat-select>
@@ -101,7 +101,7 @@
 				<mat-form-field floatLabel="never">
 					<mat-label>Product</mat-label>
           <mat-select name="Product" [(ngModel)]="element.productname">
-            <mat-option *ngFor="let Product of productName" [value]="element.productname" >
+            <mat-option *ngFor="let Product of productName" [value]="element.Product" >
               {{Product.viewValue}}
             </mat-option>
           </mat-select>
@@ -154,6 +154,6 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
-  <button mat-raised-button color="primary" routerLink="invoicelisting" (click)="Save()">Submit</button>
+  <button mat-raised-button color="primary" routerLink="invoicelisting"  (click)="Save()">Submit</button>
 </mat-card>
   

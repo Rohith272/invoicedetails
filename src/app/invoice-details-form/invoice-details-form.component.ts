@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import {ServiceService} from '../services/service.service'
+import {ServiceService} from '../services/service.service';
 import { Router } from '@angular/router';
 
 export class ProductDetails {
@@ -50,13 +50,13 @@ export class InvoiceDetailsFormComponent implements OnInit {
 
   }
 
-  DirectSNS: DirectSns[] = [
+  directSNS: DirectSns[] = [
     {value: 'Direct', viewValue: 'Direct'},
     {value: 'SNS', viewValue: 'SNS'},
 
   ];
 
-  RegionSel: Region[] = [
+  regionSel: Region[] = [
     {value: 'North', viewValue: 'North'},
     {value: 'South', viewValue: 'South'},
     {value: 'East', viewValue:'East'},
@@ -96,6 +96,6 @@ export class InvoiceDetailsFormComponent implements OnInit {
   //for saving the data
   Save(){
       this.router.navigate(['/invoicelisting'])
-      this.service.SaveData(this.data);
+      this.service.saveData(this.data);
   }
 }
