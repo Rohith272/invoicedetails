@@ -1,0 +1,55 @@
+.card {
+    background-color:white;
+    border: 1px solid white;
+    border-radius : 1rem;
+    width:100% !important;
+    margin: 0 auto;
+    float: none; 
+    margin-bottom: 10px; 
+  }
+.mat-form-field,th,td{
+    width: 18%;
+    margin: 15px;
+}
+
+.head{
+    text-align: center;
+}
+
+.table{
+    background-color:white;
+    border: 1px solid white;
+    border-radius : 1rem;
+    width:100% !important;
+    margin: 0 auto;
+    float: none; 
+    margin-bottom: 10px;
+}
+.mat-elevation-z8{
+    width: 95%;
+    margin: 15px;
+}
+.tablehead{
+    color: black;
+    font-weight: 800;
+    font-size: 100%;
+}
+.btn{
+    margin-left: 2%;
+}
+.mat-column-productname {
+    flex: 0 0 40% !important;
+    width: 40% !important;
+}
+.mat-column-warrenty {
+    flex: 0 0 20% !important;
+    width: 20% !important;
+}
+.mat-column-quantity {
+    flex: 0 0 20% !important;
+    width: 20% !important;
+}
+.mat-column-amount {
+    flex: 0 0 20% !important;
+    width: 20% !important;
+}
