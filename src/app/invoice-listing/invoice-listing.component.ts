@@ -1,15 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import {ServiceService} from '../services/service.service'
-
-export class ProductDetails {
-  productname: string = "";
-  warrenty: number = 0;
-  quantity: number = 0;
-  rate: number = 0;
-  amount: number = 0;
-}
+import { InvoiceService } from '../services/invoice.service';
+import { ProductDetails } from '../models/product-details';
 
 
 @Component({
@@ -19,22 +12,24 @@ export class ProductDetails {
 })
 export class InvoiceListingComponent implements OnInit {
 
+  data: ProductDetails[] =[
+    {productname:"",warrenty:0,quantity:0,rate:0,amount:0},
+  ]
   ProductList =[{'productname':"", 'warrenty':"",'quantity':"",'amount':""}];
-  constructor(private router:Router, private service:ServiceService) {
-    this.ProductList = this.service.GetData();
-    this.dataSource = new MatTableDataSource<any>(this.ProductList);
+  constructor(private router:Router, private invoiceservice:InvoiceService) {
 
    }
     
   ngOnInit(): void {
+    this.invoiceservice.GetData().subscribe((data)=>{
+      this.ProductList.push(data);
+      this.dataSource = new MatTableDataSource<any>(this.ProductList);
+    });
   }
 
-  data: ProductDetails[] =[
-    {productname:"",warrenty:0,quantity:0,rate:0,amount:0},
-  ]
-
-  public dataSource =new MatTableDataSource<any>(this.ProductList);
+ public dataSource =new MatTableDataSource<any>([]);
   displayedColumns: string[] = ['productname', 'warrenty', 'quantity','amount'];
+
   addInvoice(){
     this.router.navigate(['/invoicedetails'])
     console.log(this.ProductList)

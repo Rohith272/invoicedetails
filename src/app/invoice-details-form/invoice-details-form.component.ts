@@ -1,27 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import {ServiceService} from '../services/service.service'
+import { InvoiceService } from '../services/invoice.service';
 import { Router } from '@angular/router';
+import {ProductDetails} from '../models/product-details'
+import {ClientDetails} from '../models/client-details'
 
-export class ProductDetails {
-  productname: string = "";
-  warrenty: number = 0;
-  quantity: number = 0;
-  rate: number = 0;
-  amount: number = 0;
-}
 
-export class ClientDetails{
-  invoice_number : any = "";
-  purchase_date : any = "";
-  quarter: any = "";
-  modality: any= "";
-  sub_modality: any="";
-  segment: any= "";
-  direction_sns: any= "";
-  costumer_name: any = "";
-  state : any = "";
-}
 interface DirectSns {
   value: string;
   viewValue: string;
@@ -44,7 +28,7 @@ interface Product{
 export class InvoiceDetailsFormComponent implements OnInit {
 
   @Input() client:any = new ClientDetails();
-  constructor(private router:Router, private service:ServiceService) { }
+  constructor(private router:Router, private service:InvoiceService) { }
 
   ngOnInit(): void {
 
