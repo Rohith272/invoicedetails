@@ -34,13 +34,13 @@ export class InvoiceDetailsFormComponent implements OnInit {
 
   }
 
-  DirectSNS: DirectSns[] = [
+  directSNS: DirectSns[] = [
     {value: 'Direct', viewValue: 'Direct'},
     {value: 'SNS', viewValue: 'SNS'},
 
   ];
 
-  RegionSel: Region[] = [
+  regionSel: Region[] = [
     {value: 'North', viewValue: 'North'},
     {value: 'South', viewValue: 'South'},
     {value: 'East', viewValue:'East'},
@@ -80,6 +80,6 @@ export class InvoiceDetailsFormComponent implements OnInit {
   //for saving the data
   Save(){
       this.router.navigate(['/invoicelisting'])
-      this.service.SaveData(this.data);
+      this.service.saveData(this.data);
   }
 }

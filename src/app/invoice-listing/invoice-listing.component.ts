@@ -32,6 +32,6 @@ export class InvoiceListingComponent implements OnInit {
 
   addInvoice(){
     this.router.navigate(['/invoicedetails'])
-    console.log(this.ProductList)
+    console.log(this.productList)
   }
  }
