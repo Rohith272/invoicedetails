@@ -2,9 +2,28 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { InvoiceService } from '../services/invoice.service';
 import { Router } from '@angular/router';
-import {ProductDetails} from '../models/product-details'
-import {ClientDetails} from '../models/client-details'
+//import {ProductDetails} from '../models/product-details'
+//import {ClientDetails} from '../models/client-details'
 
+export class ClientDetails{
+  invoiceNumber : any = "";
+  invoiceDate : any = "";
+  quarter: any = "";
+  modality: any= "";
+  subModality: any="";
+  segment: any= "";
+  directionSns: any= "";
+  costumerName: any = "";
+  state : any = "";
+  employeeID:any="";
+}
+export class ProductDetails {
+  productName: string = "";
+  warrenty: number = 0;
+  quantity: number = 0;
+  rate: number = 0;
+  amount: number = 0;
+}
 
 interface DirectSns {
   value: string;
@@ -52,11 +71,13 @@ export class InvoiceDetailsFormComponent implements OnInit {
     {value: 'OBM', viewValue: 'OBM'},
 
   ]
-
-  data: ProductDetails[] =[
-    {productname:"",warrenty:0,quantity:0,rate:0,amount:0},
+  data1: ClientDetails[] = [
+    {invoiceNumber:"",invoiceDate:"",quarter:"",modality:"",subModality:"",segment:"",directionSns:"", costumerName:"",state :"", employeeID:""}
   ]
-  displayedColumns: string[] = ['productname', 'warrenty', 'quantity','amount','add','delete'];
+  data: ProductDetails[] =[
+    {productName:"",warrenty:0,quantity:0,rate:0,amount:0},
+  ]
+  displayedColumns: string[] = ['productName', 'warrenty', 'quantity','amount','add','delete'];
   dataSource = new MatTableDataSource(this.data);
 
   //for adding row
@@ -76,10 +97,11 @@ export class InvoiceDetailsFormComponent implements OnInit {
     this.dataSource.data=this.data;
     //console.log(this.data)
   }
-
+  
   //for saving the data
   Save(){
       this.router.navigate(['/invoicelisting'])
-      this.service.saveData(this.data);
-  }
+      
+      this.service.saveData(this.client);
+}
 }

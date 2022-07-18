@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { InvoiceService } from '../services/invoice.service';
 import { ProductDetails } from '../models/product-details';
+import { ClientDetails } from '../invoice-details-form/invoice-details-form.component';
 
 
 @Component({
@@ -12,26 +13,27 @@ import { ProductDetails } from '../models/product-details';
 })
 export class InvoiceListingComponent implements OnInit {
 
-  data: ProductDetails[] =[
-    {productname:"",warrenty:0,quantity:0,rate:0,amount:0},
+  data: ClientDetails[] =[
+    {invoiceNumber:"",invoiceDate:"",quarter:"",modality:"",subModality:"",segment:"",directionSns:"",costumerName:"",state:"",employeeID:""},
   ]
-  ProductList =[{'productname':"", 'warrenty':"",'quantity':"",'amount':""}];
+  ProductList =[{'productName':"", 'warrenty':"",'quantity':"",'amount':""}];
+  ClientList = [{'invoiceNumber':"",'invoiceDate':"",'quarter':"",'modality':"",'subModality':"",'segment':"",'directionSns':"",'costumerName':"",'state':"",'employeeID':""}
+]
   constructor(private router:Router, private invoiceservice:InvoiceService) {
 
    }
     
   ngOnInit(): void {
-    this.invoiceservice.GetData().subscribe((data)=>{
-      this.ProductList.push(data);
-      this.dataSource = new MatTableDataSource<any>(this.ProductList);
-    });
+      this.data = this.invoiceservice.getData()
+      this.dataSource = new MatTableDataSource<any>(this.ClientList);
   }
 
- public dataSource =new MatTableDataSource<any>([]);
-  displayedColumns: string[] = ['productname', 'warrenty', 'quantity','amount'];
+ public dataSource =new MatTableDataSource<any>([this.data]);
+  //displayedColumns: string[] = ['invoiceNumber', 'invoiceDate', 'employeeID','quarter','modality','subModality','segment','directionSns','costumerName','state','employeeID'];
+  displayedColumns: string[] = ['invoiceNumber','invoiceDate','employeeID']
 
   addInvoice(){
     this.router.navigate(['/invoicedetails'])
-    console.log(this.productList)
+    console.log(this.data)
   }
  }

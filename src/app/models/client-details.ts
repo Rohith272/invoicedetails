@@ -1,12 +1,13 @@
 
 export class ClientDetails{
-    invoice_number : any = "";
-    purchase_date : any = "";
+    invoiceNumber : any = "";
+    invoiceDate : any = "";
     quarter: any = "";
     modality: any= "";
-    sub_modality: any="";
+    subModality: any="";
     segment: any= "";
-    direction_sns: any= "";
-    costumer_name: any = "";
+    directionSns: any= "";
+    costumerName: any = "";
     state : any = "";
+    employeeID:any="";
   }

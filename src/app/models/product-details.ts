@@ -1,5 +1,5 @@
 export class ProductDetails {
-    productname: string = "";
+    productName: string = "";
     warrenty: number = 0;
     quantity: number = 0;
     rate: number = 0;
