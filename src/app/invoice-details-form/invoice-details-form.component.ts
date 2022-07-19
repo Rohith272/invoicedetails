@@ -71,9 +71,7 @@ export class InvoiceDetailsFormComponent implements OnInit {
     {value: 'OBM', viewValue: 'OBM'},
 
   ]
-  data1: ClientDetails[] = [
-    {invoiceNumber:"",invoiceDate:"",quarter:"",modality:"",subModality:"",segment:"",directionSns:"", costumerName:"",state :"", employeeID:""}
-  ]
+  
   data: ProductDetails[] =[
     {productName:"",warrenty:0,quantity:0,rate:0,amount:0},
   ]
@@ -100,8 +98,7 @@ export class InvoiceDetailsFormComponent implements OnInit {
   
   //for saving the data
   Save(){
-      this.router.navigate(['/invoicelisting'])
-      
-      this.service.saveData(this.client);
+    this.service.saveData(this.client);
+    this.router.navigate(['/invoicelisting'])
 }
 }

@@ -20,12 +20,12 @@ export class InvoiceListingComponent implements OnInit {
   ClientList = [{'invoiceNumber':"",'invoiceDate':"",'quarter':"",'modality':"",'subModality':"",'segment':"",'directionSns':"",'costumerName':"",'state':"",'employeeID':""}
 ]
   constructor(private router:Router, private invoiceservice:InvoiceService) {
-
+    this.data = this.invoiceservice.getData()
+    this.dataSource = new MatTableDataSource<any>(this.data);
    }
     
   ngOnInit(): void {
-      this.data = this.invoiceservice.getData()
-      this.dataSource = new MatTableDataSource<any>(this.ClientList);
+      
   }
 
  public dataSource =new MatTableDataSource<any>([this.data]);
