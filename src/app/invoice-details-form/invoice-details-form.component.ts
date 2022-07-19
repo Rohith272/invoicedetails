@@ -2,28 +2,28 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { InvoiceService } from '../services/invoice.service';
 import { Router } from '@angular/router';
-//import {ProductDetails} from '../models/product-details'
-//import {ClientDetails} from '../models/client-details'
+import {ProductDetails} from '../models/product-details'
+import {ClientDetails} from '../models/client-details'
 
-export class ClientDetails{
-  invoiceNumber : any = "";
-  invoiceDate : any = "";
-  quarter: any = "";
-  modality: any= "";
-  subModality: any="";
-  segment: any= "";
-  directionSns: any= "";
-  costumerName: any = "";
-  state : any = "";
-  employeeID:any="";
-}
-export class ProductDetails {
-  productName: string = "";
-  warrenty: number = 0;
-  quantity: number = 0;
-  rate: number = 0;
-  amount: number = 0;
-}
+// export class ClientDetails{
+//   invoiceNumber : any = "";
+//   invoiceDate : any = "";
+//   quarter: any = "";
+//   modality: any= "";
+//   subModality: any="";
+//   segment: any= "";
+//   directionSns: any= "";
+//   costumerName: any = "";
+//   state : any = "";
+//   employeeID:any="";
+// }
+// export class ProductDetails {
+//   productName: string = "";
+//   warrenty: number = 0;
+//   quantity: number = 0;
+//   rate: number = 0;
+//   amount: number = 0;
+// }
 
 interface DirectSns {
   value: string;

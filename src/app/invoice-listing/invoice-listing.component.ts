@@ -3,7 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { InvoiceService } from '../services/invoice.service';
 import { ProductDetails } from '../models/product-details';
-import { ClientDetails } from '../invoice-details-form/invoice-details-form.component';
+import { ClientDetails } from '../models/client-details';
 
 
 @Component({
