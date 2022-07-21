@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { InvoiceDetails } from '../models/invoicedetails';
 import { InvoiceService } from '../services/invoice.service';
-import { ProductDetails } from '../models/product-details';
-import { ClientDetails } from '../models/client-details';
+//import { ProductDetails } from '../models/product-details';
+
 
 
 @Component({
@@ -13,24 +14,21 @@ import { ClientDetails } from '../models/client-details';
 })
 export class InvoiceListingComponent implements OnInit {
 
-  data: ClientDetails[] =[
-    {invoiceNumber:"",invoiceDate:"",quarter:"",modality:"",subModality:"",segment:"",directionSns:"",costumerName:"",state:"",employeeID:""},
-  ]
-  ProductList =[{'productName':"", 'warrenty':"",'quantity':"",'amount':""}];
-  ClientList = [{'invoiceNumber':"",'invoiceDate':"",'quarter':"",'modality':"",'subModality':"",'segment':"",'directionSns':"",'costumerName':"",'state':"",'employeeID':""}
-]
+  data: InvoiceDetails[] =[];
+  //ProductList =[{'productName':"", 'warrenty':"",'quantity':"",'amount':""}];
+  //ClientList = [{'invoiceNumber':"",'invoiceDate':"",'quarter':"",'modality':"",'subModality':"",'segment':"",'directionSns':"",'costumerName':"",'state':"",'employeeID':""}]
   constructor(private router:Router, private invoiceservice:InvoiceService) {
     this.data = this.invoiceservice.getData()
     this.dataSource = new MatTableDataSource<any>(this.data);
    }
-    
+
   ngOnInit(): void {
       
   }
 
  public dataSource =new MatTableDataSource<any>([this.data]);
   //displayedColumns: string[] = ['invoiceNumber', 'invoiceDate', 'employeeID','quarter','modality','subModality','segment','directionSns','costumerName','state','employeeID'];
-  displayedColumns: string[] = ['invoiceNumber','invoiceDate','employeeID']
+  displayedColumns: string[] = ['invoiceNumber','invoiceDate','amount','employeeID']
 
   addInvoice(){
     this.router.navigate(['/invoicedetails'])

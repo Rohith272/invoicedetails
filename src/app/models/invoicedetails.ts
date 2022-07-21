@@ -1,5 +1,4 @@
-
-export class InvoiceDetails {   
+export class InvoiceDetails {
     invoiceId:number=0 ;
     invoiceNumber : any = "";
     invoiceDate : any = "";
@@ -14,4 +13,5 @@ export class InvoiceDetails {
     quantity: number = 0;
     rate: number = 0;
     amount: number = 0;
-  }
+} 
+

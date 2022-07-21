@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ClientDetails } from '../models/client-details';
+import { InvoiceDetails } from '../models/invoicedetails';
+
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +8,8 @@ import { ClientDetails } from '../models/client-details';
 export class InvoiceService {
 
   constructor() { }
-  ProductList=[{'productName':"",'warranty':"",'quantity':""}]
-  ClientList:ClientDetails[] = [];
+ // ProductList=[{'productName':"",'warranty':"",'quantity':""}]
+  ClientList:InvoiceDetails[] = [];
   //[{'invoiceNumber':"",'invoiceDate':"",'quarter':"",'modality':"",'subModality':"",'segment':"",'directionSns':"",'costumerName':"",'state':"",'employeeID':""}]
 
 saveData(input:any){
