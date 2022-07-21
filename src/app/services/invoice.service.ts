@@ -8,9 +8,9 @@ import { InvoiceDetails } from '../models/invoicedetails';
 export class InvoiceService {
 
   constructor() { }
- // ProductList=[{'productName':"",'warranty':"",'quantity':""}]
+ 
   invoiceList:InvoiceDetails[] = [];
-  //[{'invoiceNumber':"",'invoiceDate':"",'quarter':"",'modality':"",'subModality':"",'segment':"",'directionSns':"",'costumerName':"",'state':"",'employeeID':""}]
+ 
 
 saveData(input:any){
   this.invoiceList.push(input);

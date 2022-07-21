@@ -72,6 +72,15 @@
 				</mat-form-field>
 			</mat-cell>
 		</ng-container>
+
+    <ng-container matColumnDef="rate">
+			<mat-header-cell *matHeaderCellDef class="tablehead"> Rate </mat-header-cell>
+			<mat-cell *matCellDef="let element">
+				<mat-form-field floatLabel="never">
+					<input matInput placeholder="rate" [value]="element.rate" [(ngModel)]="element.rate">
+				</mat-form-field>
+			</mat-cell>
+		</ng-container>
    
     <ng-container matColumnDef="amount">
 			<mat-header-cell *matHeaderCellDef class="tablehead">Amount</mat-header-cell>

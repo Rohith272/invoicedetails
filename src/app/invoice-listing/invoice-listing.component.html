@@ -7,7 +7,7 @@
   </ng-container>
 
   <ng-container matColumnDef="invoiceDate">
-    <th mat-header-cell *matHeaderCellDef> invoice_data </th>
+    <th mat-header-cell *matHeaderCellDef> invoice_date </th>
     <td mat-cell *matCellDef="let element"> {{element.invoiceDate}} </td>
   </ng-container>
 
@@ -27,7 +27,7 @@
   </ng-container>-->
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <tr (click)="displayData(row)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 </mat-table>
 </mat-card>

@@ -6,26 +6,6 @@ import { InvoiceDetails } from '../models/invoicedetails';
 
 
 
-// export class ClientDetails{
-//   invoiceNumber : any = "";
-//   invoiceDate : any = "";
-//   quarter: any = "";
-//   modality: any= "";
-//   subModality: any="";
-//   segment: any= "";
-//   directionSns: any= "";
-//   costumerName: any = "";
-//   state : any = "";
-//   employeeID:any="";
-// }
-// export class ProductDetails {
-//   productName: string = "";
-//   warrenty: number = 0;
-//   quantity: number = 0;
-//   rate: number = 0;
-//   amount: number = 0;
-// }
-
 interface DirectSns {
   value: string;
   viewValue: string;
@@ -65,7 +45,7 @@ export class InvoiceDetailsFormComponent implements OnInit {
   ];
   
   data: InvoiceDetails[] = [];
-  displayedColumns: string[] = ['productName', 'warrenty', 'quantity','amount','add','delete'];
+  displayedColumns: string[] = ['productName', 'warrenty', 'quantity','rate','amount','add','delete'];
   public dataSource =new MatTableDataSource<any>([this.data]);
 
 

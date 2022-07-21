@@ -34,4 +34,10 @@ export class InvoiceListingComponent implements OnInit {
     this.router.navigate(['/invoicedetails'])
     console.log(this.data)
   }
+
+  displayData(row:any){
+    console.log(row);
+    this.router.navigate(['/invoicedetails'])
+    
+  }
  }
