@@ -9,15 +9,15 @@ export class InvoiceService {
 
   constructor() { }
  // ProductList=[{'productName':"",'warranty':"",'quantity':""}]
-  ClientList:InvoiceDetails[] = [];
+  invoiceList:InvoiceDetails[] = [];
   //[{'invoiceNumber':"",'invoiceDate':"",'quarter':"",'modality':"",'subModality':"",'segment':"",'directionSns':"",'costumerName':"",'state':"",'employeeID':""}]
 
 saveData(input:any){
-  this.ClientList.push(input);
-  console.log(this.ClientList)
+  this.invoiceList.push(input);
+  console.log(this.invoiceList)
 }
 getData(){
-  return this.ClientList;
+  return this.invoiceList;
 }
 
  

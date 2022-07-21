@@ -66,7 +66,8 @@ export class InvoiceDetailsFormComponent implements OnInit {
   
   data: InvoiceDetails[] = [];
   displayedColumns: string[] = ['productName', 'warrenty', 'quantity','amount','add','delete'];
-  dataSource = new MatTableDataSource<any>(this.data);
+  public dataSource =new MatTableDataSource<any>([this.data]);
+
 
   //for adding row
   addRow() {
