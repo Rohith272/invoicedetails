@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { InvoiceService } from '../services/invoice.service';
 import { Router } from '@angular/router';
-import { InvoiceDetails } from '../models/invoicedetails';
+import { InvoiceDetails, InvoiceItem } from '../models/invoicedetails';
 
 
 
@@ -25,10 +25,14 @@ interface Product{
 export class InvoiceDetailsFormComponent implements OnInit {
 
   @Input() invoice:any = new InvoiceDetails();
-  constructor(private router:Router, private service:InvoiceService) { }
+
+  
+  constructor(private router:Router, private service:InvoiceService) {
+    this.invoice = this.service.current
+  }
 
   ngOnInit(): void {
-
+    
   }
 
   directSNS: DirectSns[] = [
@@ -48,6 +52,7 @@ export class InvoiceDetailsFormComponent implements OnInit {
   displayedColumns: string[] = ['productName', 'warrenty', 'quantity','rate','amount','add','delete'];
   public dataSource =new MatTableDataSource<any>([this.data]);
 
+  
 
   //for adding row
   addRow() {
@@ -67,9 +72,16 @@ export class InvoiceDetailsFormComponent implements OnInit {
     console.log(this.data)
   }
   
+  // update(){
+  //   this.invoice = new InvoiceItem()
+  // }
   //for saving the data
   Save(){
     this.service.saveData(this.invoice);
-    this.router.navigate(['/invoicelisting'])
-}
+    this.invoice = new InvoiceDetails()
+    this.router.navigate(['/invoicelisting']);
+  }
+
+  
+
 }

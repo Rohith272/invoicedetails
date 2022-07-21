@@ -27,7 +27,7 @@
   </ng-container>-->
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <tr (click)="displayData(row)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr (click)="displayData(this.elem=this.row)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 </mat-table>
 </mat-card>
