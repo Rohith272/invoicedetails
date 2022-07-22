@@ -38,18 +38,22 @@
     margin-left: 2%;
 }
 .mat-column-productName {
-    flex: 0 0 20% !important;
-    width: 20% !important;
+    flex: 0 0 15% !important;
+    width: 15% !important;
 }
 .mat-column-warrenty {
-    flex: 0 0 20% !important;
-    width: 20% !important;
+    flex: 0 0 15% !important;
+    width: 15% !important;
 }
 .mat-column-quantity {
-    flex: 0 0 20% !important;
-    width: 20% !important;
+    flex: 0 0 15% !important;
+    width: 15% !important;
 }
 .mat-column-amount {
-    flex: 0 0 20% !important;
-    width: 20% !important;
+    flex: 0 0 15% !important;
+    width: 15% !important;
+}
+.mat-column-rate{
+    flex: 0 0 15% !important;
+    width: 15% !important;  
 }
