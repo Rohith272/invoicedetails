@@ -48,8 +48,8 @@
 			<mat-cell *matCellDef="let element">
 				<mat-form-field floatLabel="never">
 					<mat-label>Product</mat-label>
-          <mat-select name="Product" [(ngModel)]="element.productName">
-            <mat-option *ngFor="let Product of productName" [value]="element.Product" >
+          <mat-select name="productName" [(ngModel)]="element.productName">
+            <mat-option *ngFor="let Product of productName" [value]="Product.value">
               {{Product.viewValue}}
             </mat-option>
           </mat-select>
