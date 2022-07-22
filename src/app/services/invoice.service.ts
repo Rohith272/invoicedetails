@@ -6,25 +6,30 @@ import { InvoiceDetails } from '../models/invoicedetails';
   providedIn: 'root'
 })
 export class InvoiceService {
-  isTrue!: boolean;
-  current: InvoiceDetails[] = [];
+  isEdit!: boolean;
+  current: InvoiceDetails | undefined ;
   constructor() { }
  
   invoiceList:InvoiceDetails[] = [];
  
 
-saveData(input:any){
-  this.invoiceList.push(input);
+saveData(invoice:InvoiceDetails){
+
+  if (!this.isEdit)
+  {
+    this.invoiceList.push(invoice);
+  }
+  
   console.log(this.invoiceList)
 }
 getData(){
   return this.invoiceList;
 }
 
-update(obj:any,index:any){
-  this.current = obj;
-  this.invoiceList.splice(index,1);
-  this.isTrue = true;
+update(invoice:InvoiceDetails,index:any){
+  this.current = invoice;
+  //this.invoiceList.splice(index,1);
+  this.isEdit = true;
 }
  
 }

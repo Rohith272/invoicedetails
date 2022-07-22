@@ -13,7 +13,7 @@ import { InvoiceService } from '../services/invoice.service';
   styleUrls: ['./invoice-listing.component.css']
 })
 export class InvoiceListingComponent implements OnInit {
-  elem: InvoiceDetails[]= [];
+  selectedInvoice: InvoiceDetails | undefined ; 
   data: InvoiceDetails[] =[];
 
   constructor(private router:Router, private invoiceservice:InvoiceService) {
@@ -30,11 +30,13 @@ export class InvoiceListingComponent implements OnInit {
 
   addInvoice(){
     this.router.navigate(['/invoicedetails'])
-    this.invoiceservice.current = []
+    this.invoiceservice.current = undefined
   }
 
   displayData(row:any,index:any){
-    this.invoiceservice.update(this.elem,index)
+    this.selectedInvoice = row;
+    if (this.selectedInvoice)
+      this.invoiceservice.update(this.selectedInvoice,index)
     this.router.navigate(['/invoicedetails'])
   }
  }

@@ -24,7 +24,7 @@
 
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <tr (click)="displayData(this.elem=this.row,i)" mat-row *matRowDef="let row; columns: displayedColumns;let i = index"></tr>
+  <tr (click)="displayData(this.row,i)" mat-row *matRowDef="let row; columns: displayedColumns;let i = index"></tr>
 
 </mat-table>
 </mat-card>

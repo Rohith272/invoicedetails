@@ -5,7 +5,7 @@ export class InvoiceDetails {
     directionSns: any= "";
     customerName:any="";
     employeeID:any="";
-    item: InvoiceItem[] = [];
+    item: InvoiceItem[] = [new InvoiceItem()];
   }
   export class InvoiceItem {
     productName: any = "";

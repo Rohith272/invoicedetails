@@ -26,10 +26,10 @@ export class InvoiceDetailsFormComponent implements OnInit {
 
   @Input() invoice:any = new InvoiceDetails();
  
-  tab : object = new InvoiceItem();
+  
   constructor(private router:Router, private service:InvoiceService) {
 
-    if (this.service.isTrue==true)
+    if (this.service.isEdit==true)
     {
       this.invoice = this.service.current;
     }
@@ -53,35 +53,33 @@ export class InvoiceDetailsFormComponent implements OnInit {
     {value: 'OBM', viewValue: 'OBM'}
   ];
   
-  data: InvoiceDetails[] = [];
+  
   displayedColumns: string[] = ['productName', 'warrenty', 'quantity','rate','amount','add','delete'];
-  public dataSource =new MatTableDataSource<any>([this.data]);
+  public dataSource =new MatTableDataSource<any>(this.invoice.item);
 
   
 
   //for adding row
   addRow() {
-    this.data.push(new InvoiceDetails())
+    this.invoice.item.push(new InvoiceItem())
     this.updateDataSource();
   }
 
   //for deleting an existing row
   deleteRow(index: number){
-    this.data.splice(index,1);
+    this.invoice.item.splice(index,1);
     this.updateDataSource();
   }
 
   //for updating the datasource
   updateDataSource(){
-    this.dataSource.data=this.data;
-    console.log(this.data)
+    this.dataSource.data=this.invoice.item;
+    console.log(this.invoice)
   }
   
   
   Save(){
-    this.invoice.item = this.data
     this.service.saveData(this.invoice);
-    this.invoice = new InvoiceDetails()
     this.router.navigate(['/invoicelisting']);
   }
 
