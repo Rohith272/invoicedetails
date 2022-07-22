@@ -25,8 +25,8 @@ interface Product{
 export class InvoiceDetailsFormComponent implements OnInit {
 
   @Input() invoice:any = new InvoiceDetails();
-
-  
+ 
+  tab : object = new InvoiceItem();
   constructor(private router:Router, private service:InvoiceService) {
 
     if (this.service.isTrue==true)
@@ -79,6 +79,7 @@ export class InvoiceDetailsFormComponent implements OnInit {
   
   
   Save(){
+    this.invoice.item = this.data
     this.service.saveData(this.invoice);
     this.invoice = new InvoiceDetails()
     this.router.navigate(['/invoicelisting']);

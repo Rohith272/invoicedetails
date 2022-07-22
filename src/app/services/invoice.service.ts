@@ -15,6 +15,7 @@ export class InvoiceService {
 
 saveData(input:any){
   this.invoiceList.push(input);
+  console.log(this.invoiceList)
 }
 getData(){
   return this.invoiceList;
