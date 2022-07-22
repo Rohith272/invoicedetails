@@ -3,7 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { InvoiceDetails } from '../models/invoicedetails';
 import { InvoiceService } from '../services/invoice.service';
-//import { ProductDetails } from '../models/product-details';
+
 
 
 
@@ -15,8 +15,7 @@ import { InvoiceService } from '../services/invoice.service';
 export class InvoiceListingComponent implements OnInit {
   elem: InvoiceDetails[]= [];
   data: InvoiceDetails[] =[];
-  //ProductList =[{'productName':"", 'warrenty':"",'quantity':"",'amount':""}];
-  //ClientList = [{'invoiceNumber':"",'invoiceDate':"",'quarter':"",'modality':"",'subModality':"",'segment':"",'directionSns':"",'costumerName':"",'state':"",'employeeID':""}]
+
   constructor(private router:Router, private invoiceservice:InvoiceService) {
     this.data = this.invoiceservice.getData()
     this.dataSource = new MatTableDataSource<any>(this.data);
@@ -27,18 +26,15 @@ export class InvoiceListingComponent implements OnInit {
   }
 
  public dataSource =new MatTableDataSource<any>([this.data]);
-  //displayedColumns: string[] = ['invoiceNumber', 'invoiceDate', 'employeeID','quarter','modality','subModality','segment','directionSns','costumerName','state','employeeID'];
   displayedColumns: string[] = ['invoiceNumber','invoiceDate','amount','employeeID']
 
   addInvoice(){
     this.router.navigate(['/invoicedetails'])
-    console.log(this.data)
+    this.invoiceservice.current = []
   }
 
-  displayData(row:any){
-    //console.log(row);
-    this.invoiceservice.update(row)
+  displayData(row:any,index:any){
+    this.invoiceservice.update(this.elem,index)
     this.router.navigate(['/invoicedetails'])
-    
   }
  }

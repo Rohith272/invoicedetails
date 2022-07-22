@@ -28,7 +28,12 @@ export class InvoiceDetailsFormComponent implements OnInit {
 
   
   constructor(private router:Router, private service:InvoiceService) {
-    this.invoice = this.service.current
+
+    if (this.service.isTrue==true)
+    {
+      this.invoice = this.service.current;
+    }
+    
   }
 
   ngOnInit(): void {
@@ -72,10 +77,7 @@ export class InvoiceDetailsFormComponent implements OnInit {
     console.log(this.data)
   }
   
-  // update(){
-  //   this.invoice = new InvoiceItem()
-  // }
-  //for saving the data
+  
   Save(){
     this.service.saveData(this.invoice);
     this.invoice = new InvoiceDetails()

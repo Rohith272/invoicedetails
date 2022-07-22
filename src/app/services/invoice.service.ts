@@ -6,6 +6,7 @@ import { InvoiceDetails } from '../models/invoicedetails';
   providedIn: 'root'
 })
 export class InvoiceService {
+  isTrue!: boolean;
   current: InvoiceDetails[] = [];
   constructor() { }
  
@@ -14,16 +15,15 @@ export class InvoiceService {
 
 saveData(input:any){
   this.invoiceList.push(input);
-  //console.log(this.invoiceList)
 }
 getData(){
   return this.invoiceList;
 }
 
-update(obj:any){
+update(obj:any,index:any){
   this.current = obj;
-  console.log(this.current);
-
+  this.invoiceList.splice(index,1);
+  this.isTrue = true;
 }
  
 }
