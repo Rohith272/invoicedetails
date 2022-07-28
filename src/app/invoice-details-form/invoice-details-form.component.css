@@ -14,7 +14,9 @@
 
 .head{
     text-align: center;
+
 }
+
 
 .table{
     background-color:white;
@@ -24,6 +26,10 @@
     margin: 0 auto;
     float: none; 
     margin-bottom: 10px;
+
+}
+.product{
+    width: 100px;
 }
 .mat-elevation-z8{
     width: 95%;
@@ -36,6 +42,10 @@
 }
 .btn{
     margin-left: 2%;
+    border-radius: 12px;
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50
 }
 .mat-column-productName {
     flex: 0 0 15% !important;

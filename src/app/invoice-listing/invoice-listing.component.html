@@ -27,6 +27,6 @@
   <tr (click)="displayData(this.row,i)" mat-row *matRowDef="let row; columns: displayedColumns;let i = index"></tr>
 
 </mat-table>
+  <button class="btn" mat-raised-button color="primary" (click)="addInvoice()">Add New</button>
 </mat-card>
 
-<button mat-raised-button color="primary" (click)="addInvoice()">Add New</button>

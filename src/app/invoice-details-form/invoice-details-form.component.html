@@ -46,10 +46,10 @@
     <ng-container matColumnDef="productName">
 			<mat-header-cell *matHeaderCellDef class="tablehead"> Product Name </mat-header-cell>
 			<mat-cell *matCellDef="let element">
-				<mat-form-field floatLabel="never">
-					<mat-label>Product</mat-label>
+				<mat-form-field  floatLabel="never" class="product">
+					<mat-label>product Name</mat-label>
           <mat-select name="productName" [(ngModel)]="element.productName">
-            <mat-option *ngFor="let Product of productName" [value]="Product.value">
+            <mat-option *ngFor="let Product of productList" [value]="Product.value">
               {{Product.viewValue}}
             </mat-option>
           </mat-select>
@@ -108,6 +108,7 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
-  <button mat-raised-button color="primary" (click)="Save()">Submit</button>
-</mat-card>
+  <button class="btn" mat-raised-button color="primary" (click)="Save()">Submit</button>
   
+</mat-card>
+

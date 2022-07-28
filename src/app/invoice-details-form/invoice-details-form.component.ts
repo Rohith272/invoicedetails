@@ -47,7 +47,7 @@ export class InvoiceDetailsFormComponent implements OnInit {
   ];
 
  
-  productName:Product[]=[
+  productList:Product[]=[
     {value: 'Criticool', viewValue: 'Criticool'},
     {value: 'Billicare', viewValue: 'Billicare'},
     {value: 'OBM', viewValue: 'OBM'}

@@ -23,6 +23,8 @@
     margin: 0 auto;
     float: none; 
     margin-bottom: 10px;
+    cursor: pointer;
+    cursor: hand;
 }
 .mat-elevation-z8{
     width: 95%;
@@ -32,4 +34,11 @@
     color: black;
     font-weight: 800;
     font-size: 100%;
+}
+.btn{
+    border-radius: 12px;
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    margin-left: 2%;
 }
