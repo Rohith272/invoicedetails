@@ -3,6 +3,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { InvoiceService } from '../services/invoice.service';
 import { Router } from '@angular/router';
 import { InvoiceDetails, InvoiceItem } from '../models/invoicedetails';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
+
 
 
 
@@ -25,8 +27,7 @@ interface Product{
 export class InvoiceDetailsFormComponent implements OnInit {
 
   @Input() invoice:any = new InvoiceDetails();
- 
-  
+  public myForm: FormGroup;
   constructor(private router:Router, private service:InvoiceService) {
 
     if (this.service.isEdit==true)
@@ -37,8 +38,14 @@ export class InvoiceDetailsFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
-  }
+
+    this.myForm = new FormGroup({
+      invoiceNumber: new FormControl('', [Validators.required,]),
+      });
+      }
+      public myError = (controlName: string, errorName: string) =>{
+      return this.myForm.controls[controlName].hasError(errorName);
+      }
 
   directSNS: DirectSns[] = [
     {value: 'Direct', viewValue: 'Direct'},
