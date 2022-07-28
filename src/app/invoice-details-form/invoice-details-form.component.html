@@ -6,7 +6,7 @@
 <mat-card class="card">
     <mat-form-field appearance="fill">
         <mat-label>Invoice Number</mat-label>
-        <input matInput [(ngModel)]="invoice.invoiceNumber">
+        <input matInput [(ngModel)]="invoice.invoiceNumber" required>
     </mat-form-field>
 
     <mat-form-field class="example-full-width" appearance="fill">
@@ -37,6 +37,11 @@
         <mat-label>Employee ID</mat-label>
         <input matInput [(ngModel)]="invoice.employeeID">
     </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Amount</mat-label>
+      <input matInput [(ngModel)]="invoice.amount">
+  </mat-form-field>
 </mat-card>
 
 
@@ -46,7 +51,7 @@
     <ng-container matColumnDef="productName">
 			<mat-header-cell *matHeaderCellDef class="tablehead"> Product Name </mat-header-cell>
 			<mat-cell *matCellDef="let element">
-				<mat-form-field floatLabel="never">
+				<mat-form-field floatLabel="never" style="width: 300px;">
 					<mat-label>Product</mat-label>
           <mat-select name="productName" [(ngModel)]="element.productName">
             <mat-option *ngFor="let Product of productName" [value]="Product.value">

@@ -23,6 +23,7 @@
     margin: 0 auto;
     float: none; 
     margin-bottom: 10px;
+    cursor: pointer;
 }
 .mat-elevation-z8{
     width: 95%;

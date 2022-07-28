@@ -26,7 +26,7 @@ export class InvoiceDetailsFormComponent implements OnInit {
 
   @Input() invoice:any = new InvoiceDetails();
  
-  
+
   constructor(private router:Router, private service:InvoiceService) {
 
     if (this.service.isEdit==true)
