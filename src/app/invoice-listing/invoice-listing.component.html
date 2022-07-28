@@ -2,12 +2,12 @@
     
 <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 <ng-container matColumnDef="invoiceNumber">
-    <th mat-header-cell *matHeaderCellDef  style="width: 100px;"> invoice_number </th>
+    <th mat-header-cell *matHeaderCellDef  style="width: 100px;"> invoice Number </th>
     <td mat-cell *matCellDef="let element"> {{element.invoiceNumber}} </td>
   </ng-container>
 
   <ng-container matColumnDef="invoiceDate">
-    <th mat-header-cell *matHeaderCellDef> invoice_date </th>
+    <th mat-header-cell *matHeaderCellDef> invoice Date </th>
     <td mat-cell *matCellDef="let element"> {{element.invoiceDate |date:'short'}} </td>
   </ng-container>
 
