@@ -1,0 +1,20 @@
+<!-- <ul>
+    <li><a routerLink="/invoicedetails" routerLinkActive="active" ariaCurrentWhenActive="page">Invoice Details</a></li>
+    <li><a routerLink="/invoicelisting" routerLinkActive="active" ariaCurrentWhenActive="page">Invoice list</a></li> 
+    
+
+</ul> -->
+<div class="head">
+    <div class="child1">
+        <button mat-button color="primary" [matMenuTriggerFor]="menu"> <mat-icon>view_list</mat-icon></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/invoicedetails" routerLinkActive="active">Invoice Entering</button>
+            <button mat-menu-item routerLink="/invoicelisting" routerLinkActive="active">Invoice List</button>
+        </mat-menu>   
+    </div>
+    <div class="child2">
+        <h2>Invoice Details</h2>
+    </div>
+</div> 
+
+

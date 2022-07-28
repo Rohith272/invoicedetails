@@ -12,17 +12,14 @@
     margin: 15px;
 }
 
-.head{
-    text-align: center;
 
-}
 
 
 .table{
     background-color:white;
     border: 1px solid white;
     border-radius : 1rem;
-    width:100% !important;
+    width:90% !important;
     margin: 0 auto;
     float: none; 
     margin-bottom: 10px;
@@ -66,4 +63,8 @@
 .mat-column-rate{
     flex: 0 0 15% !important;
     width: 15% !important;  
+}
+.main{
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
 }

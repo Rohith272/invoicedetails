@@ -26,7 +26,7 @@ export class InvoiceDetailsFormComponent implements OnInit {
 
   @Input() invoice:any = new InvoiceDetails();
  
-
+  
   constructor(private router:Router, private service:InvoiceService) {
 
     if (this.service.isEdit==true)
@@ -63,6 +63,7 @@ export class InvoiceDetailsFormComponent implements OnInit {
   addRow() {
     this.invoice.item.push(new InvoiceItem())
     this.updateDataSource();
+    this.invoice.total = this.invoice.item.amount
   }
 
   //for deleting an existing row
@@ -84,5 +85,4 @@ export class InvoiceDetailsFormComponent implements OnInit {
   }
 
   
-
 }

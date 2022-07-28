@@ -17,13 +17,17 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InvoiceDetailsFormComponent } from './invoice-details-form/invoice-details-form.component';
 import { InvoiceListingComponent } from './invoice-listing/invoice-listing.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     InvoiceDetailsFormComponent,
-    InvoiceListingComponent
+    InvoiceListingComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,8 @@ import { InvoiceListingComponent } from './invoice-listing/invoice-listing.compo
     FormsModule,
     MatButtonModule,
     MatIconModule,
-    RouterModule
+    RouterModule,
+    MatMenuModule
 
   ],
   providers: [],

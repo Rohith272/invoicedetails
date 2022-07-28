@@ -5,7 +5,7 @@ export class InvoiceDetails {
     directionSns: any= "";
     customerName:any="";
     employeeID:any="";
-    amount: number = 0;
+    total: number = 0;
     item: InvoiceItem[] = [new InvoiceItem()];
   }
   export class InvoiceItem {
@@ -13,5 +13,6 @@ export class InvoiceDetails {
     warrenty: number = 0;
     quantity: number = 0;
     rate: number = 0;
+    amount: number = 0;
 } 
 
