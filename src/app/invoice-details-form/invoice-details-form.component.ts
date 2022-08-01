@@ -22,22 +22,25 @@ interface Product{
   templateUrl: './invoice-details-form.component.html',
   styleUrls: ['./invoice-details-form.component.css']
 })
+
 export class InvoiceDetailsFormComponent implements OnInit {
 
-  @Input() invoice:any = new InvoiceDetails();
+  @Input() invoice:InvoiceDetails = new InvoiceDetails();
  
   
   constructor(private router:Router, private service:InvoiceService) {
 
     if (this.service.isEdit==true)
     {
-      this.invoice = this.service.current;
+      if (this.service.current)
+        this.invoice = this.service.current;
     }
+    
+    
     
   }
 
   ngOnInit(): void {
-    
   }
 
   directSNS: DirectSns[] = [
@@ -57,13 +60,19 @@ export class InvoiceDetailsFormComponent implements OnInit {
   displayedColumns: string[] = ['productName', 'warrenty', 'quantity','rate','amount','add','delete'];
   public dataSource =new MatTableDataSource<any>(this.invoice.item);
 
-  
+  getTotalAmount(element: InvoiceItem){
+    element.amount = element.quantity*element.rate;
+    this.invoice.total = this.invoice.item.reduce((total, invoiceItem)=> total + invoiceItem.amount,0);
+    
+  }
 
+ 
   //for adding row
   addRow() {
     this.invoice.item.push(new InvoiceItem())
     this.updateDataSource();
-    this.invoice.total = this.invoice.item.amount
+    // console.log(this.invoice.item.reduce((this.invoice.total, this.invoice.item.amount)=> this.invoice.total += this.invoice.item.amount, 0));
+    // console.log(this.invoice.item.reduce((total, invoiceItem)=> total += invoiceItem.amount, 0));
   }
 
   //for deleting an existing row
@@ -75,7 +84,6 @@ export class InvoiceDetailsFormComponent implements OnInit {
   //for updating the datasource
   updateDataSource(){
     this.dataSource.data=this.invoice.item;
-    console.log(this.invoice)
   }
   
   
@@ -83,6 +91,8 @@ export class InvoiceDetailsFormComponent implements OnInit {
     this.service.saveData(this.invoice);
     this.router.navigate(['/invoicelisting']);
   }
+
+  
 
   
 }

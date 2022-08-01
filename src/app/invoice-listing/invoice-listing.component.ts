@@ -32,6 +32,7 @@ export class InvoiceListingComponent implements OnInit {
     this.router.navigate(['/invoicedetails'])
     this.invoiceservice.current = undefined
   }
+  
 
   displayData(row:any,index:any){
     this.selectedInvoice = row;
@@ -39,4 +40,6 @@ export class InvoiceListingComponent implements OnInit {
       this.invoiceservice.update(this.selectedInvoice,index)
     this.router.navigate(['/invoicedetails'])
   }
+
+ 
  }

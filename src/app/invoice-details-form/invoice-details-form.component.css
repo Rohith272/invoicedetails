@@ -68,3 +68,6 @@
     overflow-y: hidden !important;
     overflow-x: hidden !important;
 }
+.tablehead{
+    text-align: center;
+}

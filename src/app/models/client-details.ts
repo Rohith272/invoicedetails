@@ -6,6 +6,7 @@ export class InvoiceDetails {
     directionSns: any= "";
     customerName:any="";
     employeeID:any="";
+    total: number;
     item: InvoiceItem[] = [];
   }
   export class InvoiceItem {
