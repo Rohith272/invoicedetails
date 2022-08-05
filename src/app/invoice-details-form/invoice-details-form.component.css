@@ -68,3 +68,21 @@
     overflow-y: hidden !important;
     overflow-x: hidden !important;
 }
+.tablehead{
+    text-align: center;
+}
+.example-container {
+    width: 500px;
+    height: 300px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+  
+  mat-sidenav-container {
+    height: 700px;
+  }
+  
+  mat-sidenav {
+    width: 300px;
+    background-color: aliceblue;
+    
+  }

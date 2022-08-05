@@ -17,11 +17,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InvoiceDetailsFormComponent } from './invoice-details-form/invoice-details-form.component';
 import { InvoiceListingComponent } from './invoice-listing/invoice-listing.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import {MatMenuModule} from '@angular/material/menu';
-
-
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -43,8 +42,12 @@ import {MatMenuModule} from '@angular/material/menu';
     MatTableModule,
     FormsModule,
     MatButtonModule,
-    MatIconModule,ReactiveFormsModule,
-    MatMenuModule
+    MatIconModule,
+    RouterModule,
+    MatMenuModule,
+    RouterModule,
+    ReactiveFormsModule,
+    MatSidenavModule
 
   ],
   providers: [],

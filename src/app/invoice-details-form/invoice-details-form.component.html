@@ -1,13 +1,16 @@
 <div class="main">
+<!--<mat-sidenav-container>
+    <mat-sidenav [(opened)]="opened" mode="push">
+      invoice listing details
+    </mat-sidenav>
 
-  
+  <mat-sidenav-content>-->
 <mat-card class="card">
-  <form [formGroup]="myForm">
     <mat-form-field appearance="fill">
-       <mat-label>Invoice Number</mat-label>
-        <input matInput [(ngModel)]="invoice.invoiceNumber" formControlName="invoiceNumber">
-        <mat-error *ngIf="myForm.get('invoiceNumber')?.invalid">InvoiceNumber is required</mat-error>
-   </mat-form-field>
+        <mat-label>Invoice Number</mat-label>
+        <input matInput [(ngModel)]="invoice.invoiceNumber" required>
+    </mat-form-field>
+
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Invoice Date</mat-label>
         <input matInput [matDatepicker]="picker" [(ngModel)]="invoice.invoiceDate" required>
@@ -20,7 +23,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Direct/SNS</mat-label>
-      <mat-select name="directSns" [(ngModel)]="invoice.directionSns">
+      <mat-select name="directSns" [(ngModel)]="invoice.directionSns" >
         <mat-option *ngFor="let DirectSns of directSNS" [value]="DirectSns.value">
           {{DirectSns.viewValue}}
         </mat-option>
@@ -29,22 +32,19 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Customer Name</mat-label>
-      <input matInput [(ngModel)]="invoice.customerName" required>
+      <input matInput [(ngModel)]="invoice.customerName">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
         <mat-label>Employee ID</mat-label>
-        <input matInput [(ngModel)]="invoice.employeeID" required minlength="6">
+        <input matInput [(ngModel)]="invoice.employeeID" required>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Total Amount</mat-label>
-      <input matInput [value]="invoice.total" [(ngModel)]="invoice.total" required>
+      <input matInput [(ngModel)]="invoice.total" required>
   </mat-form-field>
-</form>
 </mat-card>
-
-
 
 
 
@@ -75,7 +75,7 @@
 			<mat-header-cell *matHeaderCellDef class="tablehead"> Quantity </mat-header-cell>
 			<mat-cell *matCellDef="let element">
 				<mat-form-field floatLabel="never" style="width: 100px;">
-					<input matInput placeholder="Quantity" [value]="element.quantity" [(ngModel)]="element.quantity">
+					<input matInput placeholder="Quantity" (change)="getTotalAmount(element)" [(ngModel)]="element.quantity">
 				</mat-form-field>
 			</mat-cell>
 		</ng-container>
@@ -84,8 +84,8 @@
 			<mat-header-cell *matHeaderCellDef class="tablehead"> Rate </mat-header-cell>
 			<mat-cell *matCellDef="let element">
 				<mat-form-field floatLabel="never" style="width: 100px;">
-					<input matInput placeholder="rate" [value]="element.rate" [(ngModel)]="element.rate">
-				</mat-form-field>
+					<input matInput placeholder="rate" (change)="getTotalAmount(element)" [(ngModel)]="element.rate">
+        </mat-form-field>
 			</mat-cell>
 		</ng-container>
    
@@ -93,7 +93,7 @@
 			<mat-header-cell *matHeaderCellDef class="tablehead">Amount</mat-header-cell>
 			<mat-cell *matCellDef="let element">
 				<mat-form-field floatLabel="never" style="width: 100px;">
-					<input matInput placeholder="Amount" [value]="element.quantity*element.rate" [(ngModel)]="element.amount">
+					<input matInput placeholder="Amount"  [(ngModel)]="element.amount" readonly>
 				</mat-form-field>
 			</mat-cell>
 		</ng-container>
@@ -114,8 +114,13 @@
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
   </mat-table>
-  <button class="btn" mat-raised-button color="primary" disabled="!myForm.invalid" (click)="Save()">Submit</button>
-  
+ <button class="btn" mat-raised-button color="primary" (click)="Save()">Submit</button>
+
 </mat-card>
+<!--<button class="btn" mat-raised-button color="primary" (click)="opened=!opened">SUBMIT</button>-->
+<!--</mat-sidenav-content>
+
+</mat-sidenav-container>-->
 </div>

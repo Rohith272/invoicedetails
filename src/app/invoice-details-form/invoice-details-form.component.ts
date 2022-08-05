@@ -3,9 +3,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { InvoiceService } from '../services/invoice.service';
 import { Router } from '@angular/router';
 import { InvoiceDetails, InvoiceItem } from '../models/invoicedetails';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormGroup, FormControl, Validators} from '@angular/forms';
-
 
 
 
@@ -25,25 +22,25 @@ interface Product{
   templateUrl: './invoice-details-form.component.html',
   styleUrls: ['./invoice-details-form.component.css']
 })
+
 export class InvoiceDetailsFormComponent implements OnInit {
 
-  @Input() invoice:any = new InvoiceDetails();
-  public myForm: FormGroup;
+  @Input() invoice:InvoiceDetails = new InvoiceDetails();
+ 
+  //opened=false;
   constructor(private router:Router, private service:InvoiceService) {
 
     if (this.service.isEdit==true)
     {
-      this.invoice = this.service.current;
+      if (this.service.current)
+        this.invoice = this.service.current;
     }
-    this.myForm = new FormGroup({
-      invoiceNumber:new FormControl('',Validators.required)
-    })
-
+    
+    
+    
   }
 
   ngOnInit(): void {
-     
-  
   }
 
   directSNS: DirectSns[] = [
@@ -63,13 +60,19 @@ export class InvoiceDetailsFormComponent implements OnInit {
   displayedColumns: string[] = ['productName', 'warrenty', 'quantity','rate','amount','add','delete'];
   public dataSource =new MatTableDataSource<any>(this.invoice.item);
 
-  
+  getTotalAmount(element: InvoiceItem){
+    element.amount = element.quantity*element.rate;
+    this.invoice.total = this.invoice.item.reduce((total, invoiceItem)=> total + invoiceItem.amount,0);
+    
+  }
 
+ 
   //for adding row
   addRow() {
     this.invoice.item.push(new InvoiceItem())
     this.updateDataSource();
-    this.invoice.total = this.invoice.item.amount
+    // console.log(this.invoice.item.reduce((this.invoice.total, this.invoice.item.amount)=> this.invoice.total += this.invoice.item.amount, 0));
+    // console.log(this.invoice.item.reduce((total, invoiceItem)=> total += invoiceItem.amount, 0));
   }
 
   //for deleting an existing row
@@ -81,13 +84,16 @@ export class InvoiceDetailsFormComponent implements OnInit {
   //for updating the datasource
   updateDataSource(){
     this.dataSource.data=this.invoice.item;
-    console.log(this.invoice)
   }
   
   
   Save(){
     this.service.saveData(this.invoice);
+    //this.opened=!this.opened;
     this.router.navigate(['/invoicelisting']);
   }
-   
+
+  
+
+  
 }

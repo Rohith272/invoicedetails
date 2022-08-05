@@ -13,6 +13,7 @@ import { InvoiceService } from '../services/invoice.service';
   styleUrls: ['./invoice-listing.component.css']
 })
 export class InvoiceListingComponent implements OnInit {
+  opened=false;
   selectedInvoice: InvoiceDetails | undefined ; 
   data: InvoiceDetails[] =[];
 
@@ -32,11 +33,15 @@ export class InvoiceListingComponent implements OnInit {
     this.router.navigate(['/invoicedetails'])
     this.invoiceservice.current = undefined
   }
+  
 
   displayData(row:any,index:any){
     this.selectedInvoice = row;
+    this.opened=!this.opened;
     if (this.selectedInvoice)
       this.invoiceservice.update(this.selectedInvoice,index)
-    this.router.navigate(['/invoicedetails'])
+    //this.router.navigate(['/invoicedetails'])
   }
+
+ 
  }
