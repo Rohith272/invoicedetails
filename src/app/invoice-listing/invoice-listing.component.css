@@ -48,8 +48,8 @@ mat-sidenav-container {
     height: 700px;
   }
   
-mat-sidenav {
-    width: 300px;
+.mat-sidenav {
+    width: 800px;
     background-color: aliceblue;
     
   }
