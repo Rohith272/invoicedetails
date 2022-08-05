@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { InvoiceService } from '../services/invoice.service';
 import { Router } from '@angular/router';
 import { InvoiceDetails, InvoiceItem } from '../models/invoicedetails';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 
@@ -34,18 +35,16 @@ export class InvoiceDetailsFormComponent implements OnInit {
     {
       this.invoice = this.service.current;
     }
-    
+    this.myForm = new FormGroup({
+      invoiceNumber:new FormControl('',Validators.required)
+    })
+
   }
 
   ngOnInit(): void {
-
-    this.myForm = new FormGroup({
-      invoiceNumber: new FormControl('', [Validators.required,]),
-      });
-      }
-      public myError = (controlName: string, errorName: string) =>{
-      return this.myForm.controls[controlName].hasError(errorName);
-      }
+     
+  
+  }
 
   directSNS: DirectSns[] = [
     {value: 'Direct', viewValue: 'Direct'},
@@ -90,6 +89,5 @@ export class InvoiceDetailsFormComponent implements OnInit {
     this.service.saveData(this.invoice);
     this.router.navigate(['/invoicelisting']);
   }
-
-  
+   
 }

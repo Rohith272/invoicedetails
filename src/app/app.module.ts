@@ -17,14 +17,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InvoiceDetailsFormComponent } from './invoice-details-form/invoice-details-form.component';
 import { InvoiceListingComponent } from './invoice-listing/invoice-listing.component';
-<<<<<<< Updated upstream
+import { ReactiveFormsModule } from '@angular/forms';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import {MatMenuModule} from '@angular/material/menu';
 
 
-=======
-import { ReactiveFormsModule } from '@angular/forms';
->>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -46,13 +43,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTableModule,
     FormsModule,
     MatButtonModule,
-    MatIconModule,
-<<<<<<< Updated upstream
-    RouterModule,
+    MatIconModule,ReactiveFormsModule,
     MatMenuModule
-=======
-    RouterModule,ReactiveFormsModule
->>>>>>> Stashed changes
 
   ],
   providers: [],
