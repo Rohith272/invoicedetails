@@ -27,7 +27,7 @@ export class InvoiceDetailsFormComponent implements OnInit {
 
   @Input() invoice:InvoiceDetails = new InvoiceDetails();
  
-  
+  //opened=false;
   constructor(private router:Router, private service:InvoiceService) {
 
     if (this.service.isEdit==true)
@@ -89,6 +89,7 @@ export class InvoiceDetailsFormComponent implements OnInit {
   
   Save(){
     this.service.saveData(this.invoice);
+    //this.opened=!this.opened;
     this.router.navigate(['/invoicelisting']);
   }
 

@@ -1,6 +1,10 @@
 <div class="main">
+<!--<mat-sidenav-container>
+    <mat-sidenav [(opened)]="opened" mode="push">
+      invoice listing details
+    </mat-sidenav>
 
-  
+  <mat-sidenav-content>-->
 <mat-card class="card">
     <mat-form-field appearance="fill">
         <mat-label>Invoice Number</mat-label>
@@ -112,7 +116,11 @@
 		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
   </mat-table>
-  <button class="btn" mat-raised-button color="primary" (click)="Save()">Submit</button>
+ <button class="btn" mat-raised-button color="primary" (click)="Save()">Submit</button>
 
 </mat-card>
+<!--<button class="btn" mat-raised-button color="primary" (click)="opened=!opened">SUBMIT</button>-->
+<!--</mat-sidenav-content>
+
+</mat-sidenav-container>-->
 </div>

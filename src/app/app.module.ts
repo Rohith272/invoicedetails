@@ -20,6 +20,7 @@ import { InvoiceListingComponent } from './invoice-listing/invoice-listing.compo
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     RouterModule,
     MatMenuModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSidenavModule
 
   ],
   providers: [],

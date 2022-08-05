@@ -44,3 +44,12 @@
 .highlight{
     background: rgb(247, 201, 140);
 }
+mat-sidenav-container {
+    height: 700px;
+  }
+  
+mat-sidenav {
+    width: 300px;
+    background-color: aliceblue;
+    
+  }

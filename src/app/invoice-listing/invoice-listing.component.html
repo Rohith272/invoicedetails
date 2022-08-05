@@ -1,5 +1,10 @@
-<mat-card class="table">
-    
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="push">
+    invoice listing details
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-card class="table"> 
 <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 <ng-container matColumnDef="invoiceNumber">
     <mat-header-cell *matHeaderCellDef  style="width: 25%; text-align: center;"> invoice Number </mat-header-cell>
@@ -29,4 +34,6 @@
 </mat-table>
   <button class="btn" mat-raised-button color="primary" (click)="addInvoice()">Add New</button>
 </mat-card>
+</mat-sidenav-content>
+</mat-sidenav-container>
 
