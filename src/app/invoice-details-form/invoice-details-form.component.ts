@@ -71,8 +71,6 @@ export class InvoiceDetailsFormComponent implements OnInit {
   addRow() {
     this.invoice.item.push(new InvoiceItem())
     this.updateDataSource();
-    // console.log(this.invoice.item.reduce((this.invoice.total, this.invoice.item.amount)=> this.invoice.total += this.invoice.item.amount, 0));
-    // console.log(this.invoice.item.reduce((total, invoiceItem)=> total += invoiceItem.amount, 0));
   }
 
   //for deleting an existing row
@@ -89,7 +87,6 @@ export class InvoiceDetailsFormComponent implements OnInit {
   
   Save(){
     this.service.saveData(this.invoice);
-    //this.opened=!this.opened;
     this.router.navigate(['/invoicelisting']);
   }
 
