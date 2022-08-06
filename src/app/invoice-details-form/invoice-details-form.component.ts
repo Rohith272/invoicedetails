@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { InvoiceService } from '../services/invoice.service';
 import { Router } from '@angular/router';
 import { InvoiceDetails, InvoiceItem } from '../models/invoicedetails';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 
@@ -26,6 +27,7 @@ interface Product{
 export class InvoiceDetailsFormComponent implements OnInit {
 
   @Input() invoice:InvoiceDetails = new InvoiceDetails();
+  myForm: FormGroup;
  
   //opened=false;
   constructor(private router:Router, private service:InvoiceService) {
@@ -36,7 +38,11 @@ export class InvoiceDetailsFormComponent implements OnInit {
         this.invoice = this.service.current;
     }
     
-    
+     this.myForm = new FormGroup({
+
+      invoiceNumber: new FormControl('',Validators.required),
+      invoiceDate: new FormControl('',Validators.required)
+    });
     
   }
 
@@ -89,8 +95,5 @@ export class InvoiceDetailsFormComponent implements OnInit {
     this.service.saveData(this.invoice);
     this.router.navigate(['/invoicelisting']);
   }
-
-  
-
-  
+ 
 }

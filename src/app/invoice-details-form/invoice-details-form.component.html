@@ -5,15 +5,18 @@
     </mat-sidenav>
 
   <mat-sidenav-content>-->
-<mat-card class="card">
+    
+<form [formGroup]="myForm">
+  <mat-card class="card">
     <mat-form-field appearance="fill">
         <mat-label>Invoice Number</mat-label>
-        <input matInput [(ngModel)]="invoice.invoiceNumber" required type="number">
+        <input matInput [(ngModel)]="invoice.invoiceNumber" formControlName="invoiceNumber" type="number">
+        <mat-error *ngIf="myForm.get('invoiceNumber')?.invalid">This field is required</mat-error>
     </mat-form-field>
 
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Invoice Date</mat-label>
-        <input matInput [matDatepicker]="picker" [(ngModel)]="invoice.invoiceDate" required>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="invoice.invoiceDate" formControlName="invoiceDate">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
@@ -116,9 +119,12 @@
 		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
   </mat-table>
- <button class="btn" mat-raised-button color="primary" (click)="Save()">Submit</button>
+ <button class="btn"  mat-raised-button color="primary" [disabled]="!myForm.valid" (click)="Save()">Submit</button>
 
-</mat-card>
+  </mat-card>
+
+</form>
+
 <!--<button class="btn" mat-raised-button color="primary" (click)="opened=!opened">SUBMIT</button>-->
 <!--</mat-sidenav-content>
 
