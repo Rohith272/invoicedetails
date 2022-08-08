@@ -28,10 +28,13 @@ export class InvoiceDetailsFormComponent implements OnInit {
 
   @Input() invoice:InvoiceDetails = new InvoiceDetails();
   myForm: FormGroup;
+  myDatePickerOptions: any;
+  maxDate?: Date;
+  
  
   //opened=false;
   constructor(private router:Router, private service:InvoiceService) {
-
+    //this.disableDates();
     if (this.service.isEdit==true)
     {
       if (this.service.current)
@@ -41,13 +44,45 @@ export class InvoiceDetailsFormComponent implements OnInit {
      this.myForm = new FormGroup({
 
       invoiceNumber: new FormControl('',Validators.required),
-      invoiceDate: new FormControl('',Validators.required)
+      invoiceDate: new FormControl('',Validators.required),
+      
+      
     });
+  
+    
+   
     
   }
+ 
 
   ngOnInit(): void {
+    this.disableDates();
   }
+
+  disableDates() {
+
+    var date = new Date();
+      
+      var month:any = date.getMonth();
+      
+      var day:any = date.getDate();
+
+      var year:any = date.getFullYear();
+
+      if(month < 10)
+      {
+        month = '0' + month;
+      }
+      if(day < 10)
+      {
+        day = '0' + day;
+      }
+      
+      //var tomorrowDate = { month, day, year};
+      
+     //this.DatePickerOptions.disableSince = tomorrowDate;
+    this.maxDate =new Date();
+     }
 
   directSNS: DirectSns[] = [
     {value: 'Direct', viewValue: 'Direct'},
@@ -97,3 +132,6 @@ export class InvoiceDetailsFormComponent implements OnInit {
   }
  
 }
+
+
+
