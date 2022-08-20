@@ -17,6 +17,7 @@ export class InvoiceListingComponent implements OnInit {
   selectedInvoice: InvoiceDetails | undefined ; 
   data: InvoiceDetails[] =[];
 
+
   constructor(private router:Router, private invoiceservice:InvoiceService) {
     this.data = this.invoiceservice.getData()
     this.dataSource = new MatTableDataSource<any>(this.data);

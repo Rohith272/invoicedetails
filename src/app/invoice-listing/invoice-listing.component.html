@@ -1,7 +1,7 @@
 <mat-sidenav-container>
   <mat-sidenav [(opened)]="opened" mode="push" class="side">
     invoice listing details
-    <app-invoice-details-form></app-invoice-details-form>
+    <app-invoice-details-form *ngIf="selectedInvoice" [invoice]="selectedInvoice"></app-invoice-details-form>
   </mat-sidenav>
 
   <mat-sidenav-content>
@@ -30,7 +30,7 @@
 
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row (click)="displayData(this.row,i)"  mat-row *matRowDef="let row; columns: displayedColumns;let i = index"></mat-row>
+  <mat-row (click)="displayData(row,i)"  mat-row *matRowDef="let row; columns: displayedColumns;let i = index"></mat-row>
 
 </mat-table>
   <button class="btn" mat-raised-button color="primary" (click)="addInvoice()">Add New</button>
