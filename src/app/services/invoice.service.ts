@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InvoiceDetails } from '../models/invoicedetails';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -7,29 +8,29 @@ import { InvoiceDetails } from '../models/invoicedetails';
 })
 export class InvoiceService {
   isEdit!: boolean;
-  current: InvoiceDetails | undefined ;
-  constructor() { }
- 
-  invoiceList:InvoiceDetails[] = [];
- 
+  current: InvoiceDetails | undefined;
+  constructor(private router: Router) { }
 
-saveData(invoice:InvoiceDetails){
+  invoiceList: InvoiceDetails[] = [];
 
-  if (!this.isEdit)
-  {
-    this.invoiceList.push(invoice);
+
+  saveData(invoice: InvoiceDetails) {
+
+    if (!this.isEdit) {
+      this.invoiceList.push(invoice);
+    }
+    else {
+      this.invoiceList.push(invoice);
+    }
   }
-  
-  console.log(this.invoiceList)
-}
-getData(){
-  return this.invoiceList;
-}
+  getData() {
+    return this.invoiceList;
+  }
 
-update(invoice:InvoiceDetails,index:any){
-  this.current = invoice;
-  //this.invoiceList.splice(index,1);
-  this.isEdit = true;
-}
- 
+  update(invoice: InvoiceDetails, index: any) {
+    this.current = invoice;
+    //this.invoiceList.splice(index,1);
+    this.isEdit = true;
+  }
+
 }

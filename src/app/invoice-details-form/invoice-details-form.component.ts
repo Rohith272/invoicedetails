@@ -75,7 +75,7 @@ export class InvoiceDetailsFormComponent implements OnInit {
  
   //for adding row
   addRow() {
-    this.invoice.item.push(new InvoiceItem())
+    this.invoice.item.push(new InvoiceItem());
     this.updateDataSource();
   }
 

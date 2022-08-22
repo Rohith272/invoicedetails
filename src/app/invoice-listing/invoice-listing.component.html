@@ -1,40 +1,39 @@
 <mat-sidenav-container>
   <mat-sidenav [(opened)]="opened" mode="push" class="side">
-    invoice listing details
-    <app-invoice-details-form></app-invoice-details-form>
+    <app-invoice-details-form *ngIf="selectedInvoice" [invoice]="selectedInvoice"></app-invoice-details-form>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-card class="table"> 
-<mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-<ng-container matColumnDef="invoiceNumber">
-    <mat-header-cell *matHeaderCellDef  style="width: 25%; text-align: center;"> invoice Number </mat-header-cell>
-    <mat-cell *matCellDef="let element" style="width: 25%;"> {{element.invoiceNumber}} </mat-cell>
-  </ng-container>
+    <mat-card class="table">
+      <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        <ng-container matColumnDef="invoiceNumber">
+          <mat-header-cell *matHeaderCellDef style="width: 25%; text-align: center;"> invoice Number </mat-header-cell>
+          <mat-cell *matCellDef="let element" style="width: 25%;"> {{element.invoiceNumber}} </mat-cell>
+        </ng-container>
 
-  <ng-container matColumnDef="invoiceDate">
-    <mat-header-cell *matHeaderCellDef style="width: 25%; text-align: center;"> invoice Date </mat-header-cell>
-    <mat-cell *matCellDef="let element" style="width: 25%;"> {{element.invoiceDate |date:'short'}} </mat-cell>
-  </ng-container>
+        <ng-container matColumnDef="invoiceDate">
+          <mat-header-cell *matHeaderCellDef style="width: 25%; text-align: center;"> invoice Date </mat-header-cell>
+          <mat-cell *matCellDef="let element" style="width: 25%;"> {{element.invoiceDate |date:'short'}} </mat-cell>
+        </ng-container>
 
-  <ng-container matColumnDef="amount">
-    <mat-header-cell *matHeaderCellDef style="width: 25%; text-align: center;"> Amount </mat-header-cell>
-    <mat-cell *matCellDef="let element" style="width: 25%;"> {{element.amount}} </mat-cell>
-  </ng-container>
+        <ng-container matColumnDef="amount">
+          <mat-header-cell *matHeaderCellDef style="width: 25%; text-align: center;"> Amount </mat-header-cell>
+          <mat-cell *matCellDef="let element" style="width: 25%;"> {{element.total}}</mat-cell>
+        </ng-container>
 
-  <ng-container matColumnDef="employeeID">
-    <mat-header-cell *matHeaderCellDef style="width: 25%; text-align: center;">Employee </mat-header-cell>
-    <mat-cell *matCellDef="let element" style="width: 25%;"> {{element.employeeID}} </mat-cell>
-  </ng-container>
+        <ng-container matColumnDef="employeeID">
+          <mat-header-cell *matHeaderCellDef style="width: 25%; text-align: center;">Employee </mat-header-cell>
+          <mat-cell *matCellDef="let element" style="width: 25%;"> {{element.employeeID}} </mat-cell>
+        </ng-container>
 
 
 
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row (click)="displayData(this.row,i)"  mat-row *matRowDef="let row; columns: displayedColumns;let i = index"></mat-row>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row (click)="displayData(this.row,i)" mat-row
+          *matRowDef="let row; columns: displayedColumns;let i = index"></mat-row>
 
-</mat-table>
-  <button class="btn" mat-raised-button color="primary" (click)="addInvoice()">Add New</button>
-</mat-card>
-</mat-sidenav-content>
+      </mat-table>
+      <button class="btn" mat-raised-button color="primary" (click)="addInvoice()">Add New</button>
+    </mat-card>
+  </mat-sidenav-content>
 </mat-sidenav-container>
-
