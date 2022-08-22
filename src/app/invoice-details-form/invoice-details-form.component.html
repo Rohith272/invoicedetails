@@ -1,133 +1,137 @@
 <div class="main">
-<!--<mat-sidenav-container>
+  <!--<mat-sidenav-container>
     <mat-sidenav [(opened)]="opened" mode="push">
       invoice listing details
     </mat-sidenav>
 
   <mat-sidenav-content>-->
-    
-<form [formGroup]="myForm">
-  <mat-card class="card">
-    <mat-form-field appearance="fill">
+
+  <form [formGroup]="myForm">
+    <mat-card class="card">
+      <mat-form-field appearance="fill">
         <mat-label>Invoice Number</mat-label>
         <input matInput [(ngModel)]="invoice.invoiceNumber" formControlName="invoiceNumber" type="number">
         <mat-error *ngIf="myForm.get('invoiceNumber')?.invalid">This field is required</mat-error>
-    </mat-form-field>
+      </mat-form-field>
 
-    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Invoice Date</mat-label>
-        <input matInput [matDatepicker]="picker" [(ngModel)]="invoice.invoiceDate"  formControlName="invoiceDate"   [max]="maxDate">
+        <input matInput [matDatepicker]="picker" [(ngModel)]="invoice.invoiceDate" formControlName="invoiceDate"
+          [max]="maxDate">
         <mat-error *ngIf="myForm.get('invoiceDate')?.invalid">This field is required</mat-error>
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    
-  
+      </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Direct/SNS</mat-label>
-      <mat-select name="directSns" [(ngModel)]="invoice.directionSns" >
-        <mat-option *ngFor="let DirectSns of directSNS" [value]="DirectSns.value">
-          {{DirectSns.viewValue}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Customer Name</mat-label>
-      <input matInput [(ngModel)]="invoice.customerName" type="text">
-    </mat-form-field>
 
-    <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill">
+        <mat-label>Direct/SNS</mat-label>
+        <mat-select name="directSns" [(ngModel)]="invoice.directionSns">
+          <mat-option *ngFor="let DirectSns of directSNS" [value]="DirectSns.value">
+            {{DirectSns.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Customer Name</mat-label>
+        <input matInput [(ngModel)]="invoice.customerName" type="text" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
         <mat-label>Employee ID</mat-label>
-        <input matInput [(ngModel)]="invoice.employeeID" required>
-    </mat-form-field>
+        <input matInput [(ngModel)]="invoice.employeeID" required [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Total Amount</mat-label>
-      <input matInput [(ngModel)]="invoice.total" required type="number">
-  </mat-form-field>
-</mat-card>
+      <mat-form-field appearance="fill">
+        <mat-label>Total Amount</mat-label>
+        <input matInput [(ngModel)]="invoice.total" required type="number" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+    </mat-card>
 
 
 
-<mat-card class="table">
-  <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-    <ng-container matColumnDef="productName">
-			<mat-header-cell *matHeaderCellDef class="tablehead"> Product Name </mat-header-cell>
-			<mat-cell *matCellDef="let element">
-				<mat-form-field floatLabel="never" style="width: 150px;">
-					<mat-label>Product</mat-label>
-          <mat-select name="productName" [(ngModel)]="element.productName">
-            <mat-option *ngFor="let Product of productList" [value]="Product.value">
-              {{Product.viewValue}}
-            </mat-option>
-          </mat-select>
-				</mat-form-field>
-			</mat-cell>
-		</ng-container>
-    <ng-container matColumnDef="warrenty">
-			<mat-header-cell *matHeaderCellDef class="tablehead"> Warrenty </mat-header-cell>
-			<mat-cell *matCellDef="let element">
-				<mat-form-field floatLabel="never" style="width: 100px;">
-					<input matInput placeholder="Warrenty" [value]="element.warrenty" [(ngModel)]="element.warrenty" type="number">
-				</mat-form-field>
-			</mat-cell>
-		</ng-container>
-    <ng-container matColumnDef="quantity">
-			<mat-header-cell *matHeaderCellDef class="tablehead"> Quantity </mat-header-cell>
-			<mat-cell *matCellDef="let element">
-				<mat-form-field floatLabel="never" style="width: 100px;">
-					<input matInput placeholder="Quantity" (change)="getTotalAmount(element)" [(ngModel)]="element.quantity" type="number">
-				</mat-form-field>
-			</mat-cell>
-		</ng-container>
+    <mat-card class="table">
+      <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        <ng-container matColumnDef="productName">
+          <mat-header-cell *matHeaderCellDef class="tablehead"> Product Name </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-form-field floatLabel="never" style="width: 150px;">
+              <mat-label>Product</mat-label>
+              <mat-select name="productName" [(ngModel)]="element.productName">
+                <mat-option *ngFor="let Product of productList" [value]="Product.value">
+                  {{Product.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="warrenty">
+          <mat-header-cell *matHeaderCellDef class="tablehead"> Warrenty </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-form-field floatLabel="never" style="width: 100px;">
+              <input matInput placeholder="Warrenty" [value]="element.warrenty" [(ngModel)]="element.warrenty"
+                type="number">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="quantity">
+          <mat-header-cell *matHeaderCellDef class="tablehead"> Quantity </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-form-field floatLabel="never" style="width: 100px;">
+              <input matInput placeholder="Quantity" (change)="getTotalAmount(element)" [(ngModel)]="element.quantity"
+                type="number">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
 
-    <ng-container matColumnDef="rate">
-			<mat-header-cell *matHeaderCellDef class="tablehead"> Rate </mat-header-cell>
-			<mat-cell *matCellDef="let element">
-				<mat-form-field floatLabel="never" style="width: 100px;">
-					<input matInput placeholder="rate" (change)="getTotalAmount(element)" [(ngModel)]="element.rate" type="number">
-        </mat-form-field>
-			</mat-cell>
-		</ng-container>
-   
-    <ng-container matColumnDef="amount">
-			<mat-header-cell *matHeaderCellDef class="tablehead">Amount</mat-header-cell>
-			<mat-cell *matCellDef="let element">
-				<mat-form-field floatLabel="never" style="width: 100px;">
-					<input matInput placeholder="Amount"  [(ngModel)]="element.amount" readonly>
-				</mat-form-field>
-			</mat-cell>
-		</ng-container>
+        <ng-container matColumnDef="rate">
+          <mat-header-cell *matHeaderCellDef class="tablehead"> Rate </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-form-field floatLabel="never" style="width: 100px;">
+              <input matInput placeholder="rate" (change)="getTotalAmount(element)" [(ngModel)]="element.rate"
+                type="number">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
 
-    <ng-container matColumnDef="add">
-      <span mat-header-cell *matHeaderCellDef mat-sort-header></span>
-      <span mat-cell *matCellDef="let i = index"> 
-          <mat-icon (click)="addRow()" style="margin-right: 100px;">add_shopping_cart</mat-icon>
-      </span>
-    </ng-container>
+        <ng-container matColumnDef="amount">
+          <mat-header-cell *matHeaderCellDef class="tablehead">Amount</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-form-field floatLabel="never" style="width: 100px;">
+              <input matInput placeholder="Amount" [(ngModel)]="element.amount" readonly>
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
 
-    <ng-container matColumnDef="delete">
-      <span mat-header-cell *matHeaderCellDef mat-sort-header></span>
-      <span mat-cell *matCellDef="let i = index"> 
-          <mat-icon (click)="deleteRow(i)">delete_forever</mat-icon>
-      </span>
-    </ng-container>
+        <ng-container matColumnDef="add">
+          <span mat-header-cell *matHeaderCellDef mat-sort-header></span>
+          <span mat-cell *matCellDef="let i = index">
+            <mat-icon (click)="addRow()" style="margin-right: 100px;">add_shopping_cart</mat-icon>
+          </span>
+        </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <ng-container matColumnDef="delete">
+          <span mat-header-cell *matHeaderCellDef mat-sort-header></span>
+          <span mat-cell *matCellDef="let i = index">
+            <mat-icon (click)="deleteRow(i)">delete_forever</mat-icon>
+          </span>
+        </ng-container>
 
-  </mat-table>
- <button class="btn"  mat-raised-button color="primary" [disabled]="!myForm.valid" (click)="Save()">Submit</button>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
-  </mat-card>
+      </mat-table>
+      <button class="btn" mat-raised-button color="primary" [disabled]="!myForm.valid" (click)="Save()">Submit</button>
 
-</form>
+    </mat-card>
 
-<!--<button class="btn" mat-raised-button color="primary" (click)="opened=!opened">SUBMIT</button>-->
-<!--</mat-sidenav-content>
+  </form>
+
+  <!--<button class="btn" mat-raised-button color="primary" (click)="opened=!opened">SUBMIT</button>-->
+  <!--</mat-sidenav-content>
 
 </mat-sidenav-container>-->
 </div>
