@@ -19,9 +19,6 @@ export class InvoiceService {
     if (!this.isEdit) {
       this.invoiceList.push(invoice);
     }
-    else {
-      this.invoiceList.push(invoice);
-    }
   }
   getData() {
     return this.invoiceList;
@@ -29,7 +26,6 @@ export class InvoiceService {
 
   update(invoice: InvoiceDetails, index: any) {
     this.current = invoice;
-    //this.invoiceList.splice(index,1);
     this.isEdit = true;
   }
 

@@ -7,12 +7,12 @@
     <mat-card class="table">
       <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
         <ng-container matColumnDef="invoiceNumber">
-          <mat-header-cell *matHeaderCellDef style="width: 25%; text-align: center;"> invoice Number </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef style="width: 25%; text-align: center;"> Invoice Number </mat-header-cell>
           <mat-cell *matCellDef="let element" style="width: 25%;"> {{element.invoiceNumber}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="invoiceDate">
-          <mat-header-cell *matHeaderCellDef style="width: 25%; text-align: center;"> invoice Date </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef style="width: 25%; text-align: center;"> Invoice Date </mat-header-cell>
           <mat-cell *matCellDef="let element" style="width: 25%;"> {{element.invoiceDate |date:'short'}} </mat-cell>
         </ng-container>
 
@@ -22,7 +22,7 @@
         </ng-container>
 
         <ng-container matColumnDef="employeeID">
-          <mat-header-cell *matHeaderCellDef style="width: 25%; text-align: center;">Employee </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef style="width: 25%; text-align: center;">Employee Id</mat-header-cell>
           <mat-cell *matCellDef="let element" style="width: 25%;"> {{element.employeeID}} </mat-cell>
         </ng-container>
 

@@ -51,7 +51,7 @@
 
 
 
-    <mat-card class="table">
+    <mat-card class="tablecard">
       <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
         <ng-container matColumnDef="productName">
           <mat-header-cell *matHeaderCellDef class="tablehead"> Product Name </mat-header-cell>
@@ -69,7 +69,7 @@
         <ng-container matColumnDef="warrenty">
           <mat-header-cell *matHeaderCellDef class="tablehead"> Warrenty </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <mat-form-field floatLabel="never" style="width: 100px;">
+            <mat-form-field floatLabel="never" style="width: 120px;">
               <input matInput placeholder="Warrenty" [value]="element.warrenty" [(ngModel)]="element.warrenty"
                 type="number" [ngModelOptions]="{standalone: true}">
             </mat-form-field>
@@ -78,7 +78,7 @@
         <ng-container matColumnDef="quantity">
           <mat-header-cell *matHeaderCellDef class="tablehead"> Quantity </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <mat-form-field floatLabel="never" style="width: 100px;">
+            <mat-form-field floatLabel="never" style="width: 120px;">
               <input matInput placeholder="Quantity" (change)="getTotalAmount(element)" [(ngModel)]="element.quantity"
                 type="number" [ngModelOptions]="{standalone: true}">
             </mat-form-field>
@@ -88,7 +88,7 @@
         <ng-container matColumnDef="rate">
           <mat-header-cell *matHeaderCellDef class="tablehead"> Rate </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <mat-form-field floatLabel="never" style="width: 100px;">
+            <mat-form-field floatLabel="never" style="width: 120px;">
               <input matInput placeholder="rate" (change)="getTotalAmount(element)" [(ngModel)]="element.rate"
                 type="number" [ngModelOptions]="{standalone: true}">
             </mat-form-field>
@@ -98,7 +98,7 @@
         <ng-container matColumnDef="amount">
           <mat-header-cell *matHeaderCellDef class="tablehead">Amount</mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <mat-form-field floatLabel="never" style="width: 100px;">
+            <mat-form-field floatLabel="never" style="width: 120px;">
               <input matInput placeholder="Amount" [(ngModel)]="element.amount" readonly
                 [ngModelOptions]="{standalone: true}">
             </mat-form-field>
@@ -108,14 +108,14 @@
         <ng-container matColumnDef="add">
           <span mat-header-cell *matHeaderCellDef mat-sort-header></span>
           <span mat-cell *matCellDef="let i = index">
-            <mat-icon (click)="addRow()" style="margin-right: 100px;">add_shopping_cart</mat-icon>
+            <mat-icon (click)="addRow()" style="margin-right: 50px; width: 5px;">add_shopping_cart</mat-icon>
           </span>
         </ng-container>
 
         <ng-container matColumnDef="delete">
           <span mat-header-cell *matHeaderCellDef mat-sort-header></span>
           <span mat-cell *matCellDef="let i = index">
-            <mat-icon (click)="deleteRow(i)">delete_forever</mat-icon>
+            <mat-icon (click)="deleteRow(i)" style="width: 5px;">delete_forever</mat-icon>
           </span>
         </ng-container>
 

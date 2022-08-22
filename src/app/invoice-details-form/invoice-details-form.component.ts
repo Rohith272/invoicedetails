@@ -116,8 +116,12 @@ export class InvoiceDetailsFormComponent implements OnInit {
 
   //for deleting an existing row
   deleteRow(index: number){
-    this.invoice.item.splice(index,1);
-    this.updateDataSource();
+
+    if(index!=0){
+      this.invoice.item.splice(index,1);
+      this.updateDataSource();
+    }
+    
   }
 
   //for updating the datasource

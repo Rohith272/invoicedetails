@@ -1,55 +1,64 @@
 .card {
-    background-color:white;
+    background-color: white;
     border: 1px solid white;
-    border-radius : 1rem;
-    width:100% !important;
+    border-radius: 1rem;
+    width: 100% !important;
     margin: 0 auto;
-    float: none; 
-    margin-bottom: 10px; 
-  }
-.mat-form-field,th,td{
+    float: none;
+    margin-bottom: 10px;
+}
+
+.mat-form-field,
+th,
+td {
     width: 18%;
     margin: 15px;
 }
-.head{
+
+.head {
     text-align: center;
 }
 
-.table{
-    background-color:white;
+.table {
+    background-color: white;
     border: 1px solid white;
-    border-radius : 1rem;
-    width:80% !important;
+    border-radius: 1rem;
+    width: 80% !important;
     margin: 0 auto;
-    float: none; 
+    float: none;
     margin-bottom: 10px;
     cursor: pointer;
 }
-.mat-elevation-z8{
+
+.mat-elevation-z8 {
     width: 95%;
     margin: 15px;
 }
-.tablehead{
+
+.tablehead {
     color: black;
     font-weight: 800;
     font-size: 100%;
 }
-.btn{
+
+.btn {
     border-radius: 12px;
     background-color: white;
     color: black;
     border: 2px solid #4CAF50;
     margin-left: 2%;
 }
-.highlight{
+
+.highlight {
     background: rgb(247, 201, 140);
 }
-mat-sidenav-container {
+
+.mat-sidenav-container {
     height: 700px;
-  }
-  
+}
+
 .mat-sidenav {
     width: 1200px;
     background-color: aliceblue;
-    
-  }
+
+}

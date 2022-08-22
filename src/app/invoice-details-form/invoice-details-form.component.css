@@ -1,88 +1,108 @@
 .card {
-    background-color:white;
+    background-color: white;
     border: 1px solid white;
-    border-radius : 1rem;
-    width:100% !important;
+    border-radius: 1rem;
+    width: 100% !important;
     margin: 0 auto;
-    float: none; 
-    margin-bottom: 10px; 
-  }
-.mat-form-field,th,td{
+    float: none;
+    margin-bottom: 10px;
+}
+
+.mat-form-field,
+th,
+td {
     width: 18%;
     margin: 15px;
 }
 
 
+.tablecard{
+    width: 95%;
+    align-content: center;
+    margin-left: 2.5%;
+    padding: 5%;
+}
 
-
-.table{
-    background-color:white;
+.table {
+    background-color: white;
     border: 1px solid white;
-    border-radius : 1rem;
-    width:90% !important;
-    margin: 0 auto;
-    float: none; 
+    border-radius: 1rem;
+    width: 90% !important;
+    float: none;
     margin-bottom: 10px;
+    
 
 }
-.product{
+
+.product {
     width: 100px;
 }
-.mat-elevation-z8{
+
+.mat-elevation-z8 {
     width: 95%;
     margin: 15px;
 }
-.tablehead{
+
+.tablehead {
     color: black;
-    font-weight: 800;
+    /* font-weight: 800; */
     font-size: 100%;
 }
-.btn{
+
+.btn {
     margin-left: 2%;
     border-radius: 12px;
     background-color: white;
     color: black;
     border: 2px solid #4CAF50
 }
+
 .mat-column-productName {
-    flex: 0 0 15% !important;
-    width: 15% !important;
+    flex: 0 0 17% !important;
+    width: 17% !important;
 }
+
 .mat-column-warrenty {
-    flex: 0 0 15% !important;
-    width: 15% !important;
+    flex: 0 0 17% !important;
+    width: 17% !important;
 }
+
 .mat-column-quantity {
-    flex: 0 0 15% !important;
-    width: 15% !important;
+    flex: 0 0 17% !important;
+    width: 17% !important;
 }
+
 .mat-column-amount {
-    flex: 0 0 15% !important;
-    width: 15% !important;
+    flex: 0 0 17% !important;
+    width: 17% !important;
 }
-.mat-column-rate{
-    flex: 0 0 15% !important;
-    width: 15% !important;  
+
+.mat-column-rate {
+    flex: 0 0 17% !important;
+    width: 17% !important;
 }
-.main{
+
+.main {
     overflow-y: hidden !important;
     overflow-x: hidden !important;
 }
-.tablehead{
+
+.tablehead {
     text-align: center;
 }
+
 .example-container {
     width: 500px;
     height: 300px;
     border: 1px solid rgba(0, 0, 0, 0.5);
-  }
-  
-  mat-sidenav-container {
+}
+
+.mat-sidenav-container {
     height: 700px;
-  }
-  
-  mat-sidenav {
+}
+
+.mat-sidenav {
     width: 300px;
     background-color: aliceblue;
-    
-  }
+
+}
