@@ -1,6 +1,6 @@
 <div class="main">
   <!--<mat-sidenav-container>
-    <mat-sidenav [(opened)]="opened" mode="push">
+    <mat-sidenav [(opened)]="opened" mode="side">
       invoice listing details
     </mat-sidenav>
 
@@ -79,7 +79,7 @@
           <mat-header-cell *matHeaderCellDef class="tablehead"> Quantity </mat-header-cell>
           <mat-cell *matCellDef="let element">
             <mat-form-field floatLabel="never" style="width: 120px;">
-              <input matInput placeholder="Quantity" (change)="getTotalAmount(element)" [(ngModel)]="element.quantity"
+              <input matInput placeholder="Quantity"  [(ngModel)]="element.quantity"
                 type="number" [ngModelOptions]="{standalone: true}">
             </mat-form-field>
           </mat-cell>
@@ -99,26 +99,56 @@
           <mat-header-cell *matHeaderCellDef class="tablehead">Amount</mat-header-cell>
           <mat-cell *matCellDef="let element">
             <mat-form-field floatLabel="never" style="width: 120px;">
-              <input matInput placeholder="Amount" [(ngModel)]="element.amount" readonly
+              <input matInput placeholder="Amount"  [(ngModel)]="element.amount" readonly
                 [ngModelOptions]="{standalone: true}">
             </mat-form-field>
           </mat-cell>
         </ng-container>
 
+        <ng-container matColumnDef="disc">
+          <mat-header-cell *matHeaderCellDef class="tablehead">Disc.(%)</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-form-field floatLabel="never" style="width: 120px;">
+            <input matInput placeholder="disc.(%)" (change)="getDiscount(element)" [value]="element.discount" [(ngModel)]="element.disc"
+            type="number" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="discount">
+          <mat-header-cell *matHeaderCellDef class="tablehead">Discount</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-form-field floatLabel="never" style="width: 120px;">
+            <input matInput placeholder="discount" [value]="element.discount" [(ngModel)]="element.discount" 
+            type="number" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="netAmount">
+          <mat-header-cell *matHeaderCellDef class="tablehead">Net Amount</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-form-field floatLabel="never" style="width: 120px;">
+            <input matInput placeholder="NetAmount" [value]="element.netAmount" [(ngModel)]="element.netAmount" 
+             [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+
+        
         <ng-container matColumnDef="add">
           <span mat-header-cell *matHeaderCellDef mat-sort-header></span>
           <span mat-cell *matCellDef="let i = index">
-            <mat-icon (click)="addRow()" style="margin-right: 50px; width: 5px;">add_shopping_cart</mat-icon>
+            <mat-icon class="addicon" (click)="addRow()" style="width: 8px;">add_shopping_cart</mat-icon>
           </span>
         </ng-container>
 
         <ng-container matColumnDef="delete">
           <span mat-header-cell *matHeaderCellDef mat-sort-header></span>
           <span mat-cell *matCellDef="let i = index">
-            <mat-icon (click)="deleteRow(i)" style="width: 5px;">delete_forever</mat-icon>
+            <mat-icon class="deleteicon" (click)="deleteRow(i)" style="width: 5px;">delete_forever</mat-icon>
           </span>
-        </ng-container>
-
+        </ng-container>        
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 

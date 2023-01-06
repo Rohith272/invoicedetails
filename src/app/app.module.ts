@@ -21,6 +21,8 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import {MatMenuModule} from '@angular/material/menu';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -47,8 +49,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatMenuModule,
     RouterModule,
     ReactiveFormsModule,
-    MatSidenavModule
-
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

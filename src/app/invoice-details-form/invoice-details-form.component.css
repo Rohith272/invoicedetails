@@ -8,45 +8,33 @@
     margin-bottom: 10px;
 }
 
-.mat-form-field,
-th,
-td {
-    width: 18%;
+.mat-form-field
+{
+    width: 20%;
     margin: 15px;
 }
 
 
 .tablecard{
-    width: 95%;
-    align-content: center;
-    margin-left: 2.5%;
-    padding: 5%;
-}
-
-.table {
     background-color: white;
     border: 1px solid white;
+    width: 100%;
+    align-content: center;
+    padding: 5%;
     border-radius: 1rem;
-    width: 90% !important;
     float: none;
-    margin-bottom: 10px;
-    
-
 }
 
 .product {
-    width: 100px;
+    width: 10px;
 }
 
 .mat-elevation-z8 {
-    width: 95%;
-    margin: 15px;
-}
-
-.tablehead {
-    color: black;
-    /* font-weight: 800; */
-    font-size: 100%;
+    width: 100%;
+    margin: 5px;
+    border-radius: 1rem;
+    float: none;
+    margin-bottom: 10px;
 }
 
 .btn {
@@ -58,38 +46,71 @@ td {
 }
 
 .mat-column-productName {
-    flex: 0 0 17% !important;
-    width: 17% !important;
+    
+    flex: 0 0 10% !important;
+    width: 5% !important;
 }
 
 .mat-column-warrenty {
-    flex: 0 0 17% !important;
-    width: 17% !important;
+    
+    flex: 0 0 10% !important;
+    width: 5% !important;
 }
 
 .mat-column-quantity {
-    flex: 0 0 17% !important;
-    width: 17% !important;
+    
+    flex: 0 0 10% !important;
+    width: 5% !important;
 }
 
 .mat-column-amount {
-    flex: 0 0 17% !important;
-    width: 17% !important;
+   
+    flex: 0 0 10% !important;
+    width: 5% !important;
 }
 
 .mat-column-rate {
-    flex: 0 0 17% !important;
-    width: 17% !important;
+   
+    flex: 0 0 10% !important;
+    width: 5% !important;
 }
 
+.mat-column-disc{
+    
+    flex: 0 0 10% !important;
+    width: 5% !important;
+}
+.mat-column-discount{
+    
+    flex: 0 0 10% !important;
+    width: 5% !important;
+}
+.mat-column-netAmount{
+    flex: 0 0 10% !important;
+    width: 5% !important;
+}
+
+
+.mat-header-cell {
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+.addicon{
+    position: absolute;
+    left: 85%;
+    left:translateX(85%) !important;
+}
+.deleteicon{
+    position: absolute;
+    left: 90%;
+    left:translateX(90%) !important;
+}
 .main {
     overflow-y: hidden !important;
     overflow-x: hidden !important;
 }
 
-.tablehead {
-    text-align: center;
-}
 
 .example-container {
     width: 500px;
@@ -104,5 +125,4 @@ td {
 .mat-sidenav {
     width: 300px;
     background-color: aliceblue;
-
 }

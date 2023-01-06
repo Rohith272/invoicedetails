@@ -98,15 +98,19 @@ export class InvoiceDetailsFormComponent implements OnInit {
   ];
   
   
-  displayedColumns: string[] = ['productName', 'warrenty', 'quantity','rate','amount','add','delete'];
+  displayedColumns: string[] = ['productName', 'warrenty', 'quantity','rate','amount','disc','discount','netAmount','add','delete'];
   public dataSource =new MatTableDataSource<any>(this.invoice.item);
 
-  getTotalAmount(element: InvoiceItem){
+   getTotalAmount(element: InvoiceItem){
     element.amount = element.quantity*element.rate;
-    this.invoice.total = this.invoice.item.reduce((total, invoiceItem)=> total + invoiceItem.amount,0);
+    //this.invoice.total = this.invoice.item.reduce((total, invoiceItem)=> total + invoiceItem.amount,0);
     
   }
-
+  getDiscount(element: InvoiceItem){
+    element.discount = element.amount * (element.disc/100);
+    element.netAmount =element.amount-element.discount;
+    this.invoice.total = this.invoice.item.reduce((total, invoiceItem)=> total + invoiceItem.netAmount,0);
+  }
  
   //for adding row
   addRow() {
